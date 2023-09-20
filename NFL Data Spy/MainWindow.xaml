@@ -5,8 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NFL_Data_Spy"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Height="460" Width="810">
+    <Border CornerRadius="18"
+            Background="{StaticResource PrimaryToSecondaryGradientBrush}"
+            Height="434"
+            Width="784">
+        <Border.Effect>
+            <DropShadowEffect BlurRadius="22"
+                              ShadowDepth="6"
+                              Direction="270"
+                              Color="Black"
+                              Opacity=".6" />
+        </Border.Effect>
 
-    </Grid>
+    </Border>
 </Window>
