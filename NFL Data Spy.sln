@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NFL Data Spy", "NFL Data Spy\NFL Data Spy.csproj", "{D7A73BE6-8EE6-40F1-83B2-DAD647BC452D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{5C9FA077-8573-4477-89D2-A89F16AEA6B3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D7A73BE6-8EE6-40F1-83B2-DAD647BC452D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7A73BE6-8EE6-40F1-83B2-DAD647BC452D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7A73BE6-8EE6-40F1-83B2-DAD647BC452D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7A73BE6-8EE6-40F1-83B2-DAD647BC452D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C9FA077-8573-4477-89D2-A89F16AEA6B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C9FA077-8573-4477-89D2-A89F16AEA6B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C9FA077-8573-4477-89D2-A89F16AEA6B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C9FA077-8573-4477-89D2-A89F16AEA6B3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2D71FA9A-F882-470E-83FC-B94359436720}
+	EndGlobalSection
+EndGlobal
