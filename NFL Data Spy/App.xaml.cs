@@ -1,4 +1,9 @@
-﻿using System.Configuration;
+﻿using API.Data;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using NFL_Data_Spy.ViewModels;
+using System.Configuration;
 using System.Data;
 using System.Windows;
 
@@ -9,5 +14,36 @@ namespace NFL_Data_Spy
     /// </summary>
     public partial class App : Application
     {
+        private IHost _host;
+        //static IConfiguration configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+        public App()
+        {
+            _host = new HostBuilder()
+                .ConfigureServices((context, services) =>
+                {
+                    services.AddSingleton<AppViewModel>();
+                    services.AddSingleton<MainWindow>(s => new MainWindow()
+                    {
+                        DataContext = s.GetRequiredService<AppViewModel>()
+                    });
+                    services.AddDbContextFactory<AppDbContext>();
+
+                }).Build();
+        }
+
+        protected override void OnExit(ExitEventArgs e)
+        {
+            base.OnExit(e);
+            _host.StopAsync();
+            _host.Dispose();
+        }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            _host.StartAsync();
+            MainWindow = _host.Services.GetRequiredService<MainWindow>();
+            MainWindow.Show();
+        }
     }
 }
