@@ -1,4 +1,5 @@
 ﻿using API.Data;
+using API.Extensions;
 using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,7 +17,7 @@ namespace NFL_Data_Spy
     public partial class App : Application
     {
         private IHost _host;
-        //static IConfiguration configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+        //static IConfiguration? configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
         public App()
         {
             _host = new HostBuilder()
@@ -30,8 +31,8 @@ namespace NFL_Data_Spy
                     services.AddDbContextFactory<AppDbContext>();
                     services.AddSingleton<IMessenger, WeakReferenceMessenger>(provider =>
                          provider.GetRequiredService<WeakReferenceMessenger>());
-                    
 
+                    
                 }).Build();
            
         }
