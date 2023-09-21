@@ -1,4 +1,5 @@
 ﻿using API.Data;
+using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,8 +28,12 @@ namespace NFL_Data_Spy
                         DataContext = s.GetRequiredService<AppViewModel>()
                     });
                     services.AddDbContextFactory<AppDbContext>();
+                    services.AddSingleton<IMessenger, WeakReferenceMessenger>(provider =>
+                         provider.GetRequiredService<WeakReferenceMessenger>());
+                    
 
                 }).Build();
+           
         }
 
         protected override void OnExit(ExitEventArgs e)
