@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NFL_Data_Spy"
         xmlns:vm="clr-namespace:NFL_Data_Spy.ViewModels"
+        xmlns:v="clr-namespace:NFL_Data_Spy.Views"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance Type=vm:AppViewModel, IsDesignTimeCreatable=False}"
@@ -46,29 +47,13 @@
                            Width="24"
                            Height="24"
                            HorizontalAlignment="Center"
-                           Kind="Folder" />
+                           Kind="ViewDashboard" />
                         <TextBlock
                            HorizontalAlignment="Center"
-                           Text="Matchups" />
+                           Text="Dashboard" />
                     </StackPanel>
                 </TabItem.Header>
-                <StackPanel
-                       Margin="16">
-                    <TextBlock
-                         Margin="0,0,0,8"
-                         Style="{StaticResource MaterialDesignHeadline5TextBlock}"
-                         Text="Weekly Matchups" />
-                    <TextBlock>
-          <Run
-            Text="tab 1 content. Default look and behaviors." />
-          <LineBreak />
-          <LineBreak />
-          <Run
-            FontStyle="Italic">
-          Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
-        </Run>
-                    </TextBlock>
-                </StackPanel>
+                <v:DashboardView />
             </TabItem>
             <TabItem>
                 <TabItem.Header>

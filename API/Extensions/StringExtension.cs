@@ -9,9 +9,9 @@ namespace API.Extensions
 {
     public static class StringExtension
     {
-        public static string ToStringDivision(this Division division, Division value)
+        public static string ToStringDivision(this Division division)
         {
-            var result = value switch
+            var result = division switch
             {
                 Division.AFC_EAST => "AFC EAST",
                 Division.AFC_NORTH => "AFC NORTH",
