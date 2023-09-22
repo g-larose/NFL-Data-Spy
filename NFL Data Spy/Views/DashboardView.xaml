@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:components="clr-namespace:NFL_Data_Spy.Components"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:local="clr-namespace:NFL_Data_Spy.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:NFL_Data_Spy.ViewModels"
@@ -13,7 +14,41 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
     <Grid>
-        <ListBox ItemsSource="{Binding Matchups}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Margin="0 0 20 10">
+           <TextBox Height="30"
+                    Width="100"
+                    VerticalContentAlignment="Bottom"
+                    materialDesign:HintAssist.Hint="Season"
+                    Foreground="{StaticResource AccentColorBrush}">
+                 
+            </TextBox>
+            <ComboBox Width="200"
+                      Height="30"
+                      Margin="20 0"
+                      materialDesign:HintAssist.Hint="Team Name"
+                      Foreground="{StaticResource AccentColorBrush}"
+                      ItemsSource="{Binding TeamNames}">
+                
+            </ComboBox>
+            <Button
+                  
+                  Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
+                  ToolTip="Search For Specific Team's Schedule.">
+                <materialDesign:PackIcon
+                                 Width="20"
+                                 Height="20"
+                                 Kind="Search" />
+            </Button>
+        </StackPanel>
+        <ListBox ItemsSource="{Binding Matchups}"
+                 Grid.Row="1">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel />

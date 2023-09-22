@@ -1,5 +1,7 @@
 ﻿using API.Data;
 using API.Extensions;
+using API.Interfaces;
+using API.Services;
 using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,6 +31,7 @@ namespace NFL_Data_Spy
                         DataContext = s.GetRequiredService<AppViewModel>()
                     });
                     services.AddDbContextFactory<AppDbContext>();
+                    services.AddSingleton<IDataService, DataService>();
                     services.AddSingleton<IMessenger, WeakReferenceMessenger>(provider =>
                          provider.GetRequiredService<WeakReferenceMessenger>());
 

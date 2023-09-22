@@ -6,11 +6,11 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:NFL_Data_Spy.Components"
              mc:Ignorable="d" 
-             Height="260" Width="240">
+             Height="260" Width="280">
 
         
     <materialDesign:Card
-                    Width="240"
+                    Width="280"
                     Height="260"
                     Background="{StaticResource Primary300ColorBrush}">
         <materialDesign:Card.Effect>
@@ -32,38 +32,55 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Image Grid.Column="0"
-                    Width="84"
-                    Height="84"
-                    Source="/Images/Logo/ARI.png"
-                    Stretch="UniformToFill" />
+                   Width="84"
+                   Height="84"
+                   Source="{Binding LogoUri}"
+                   Stretch="UniformToFill" 
+                   Margin="0 10 0 0">
+                <Image.Effect>
+                    <DropShadowEffect BlurRadius="4"
+                                      ShadowDepth="3"
+                                      Direction="270"
+                                      Color="Black"
+                                      Opacity=".6" />
+                </Image.Effect>
+            </Image>
    
     <StackPanel Grid.Column="0"
     Grid.Row="1"
     Margin="8,24,8,0">
-  <TextBlock
-    FontWeight="Bold" 
-    Text="{Binding Name}"/>
-  <TextBlock FontWeight="Black"
-             Text="{Binding Division}" />
+      <TextBlock
+        FontWeight="Bold"
+        FontSize="12"
+        Text="{Binding Name}"/>
+      <TextBlock FontWeight="Black"
+                 Text="{Binding Division}" />
 
-    <TextBlock TextWrapping="Wrap"
-               VerticalAlignment="Center"
-               Text="{Binding Record}" />
+      <TextBlock TextWrapping="Wrap"
+                 VerticalAlignment="Center"
+                 Text="{Binding Record}" />
 
  
 
 </StackPanel>
-       <Image Grid.Column="1"
-         Width="84"
-         Height="84"
-         Source="/Images/Logo/DAL.png"
-         Stretch="UniformToFill" />
-    
-        <StackPanel Grid.Column="1"
+
+
+
+        <Image Grid.Column="1"
+                Width="84"
+                Height="84"
+                Source="{Binding LogoUri}"
+                Stretch="UniformToFill" 
+                Margin="0 10 0 0">
+                   
+        </Image>
+              
+            <StackPanel Grid.Column="1"
             Grid.Row="1"
             Margin="8,24,8,0">
           <TextBlock
-            FontWeight="Bold" 
+            FontWeight="Bold"
+            FontSize="12"
             Text="{Binding Name}"/>
           <TextBlock FontWeight="Black"
                      Text="{Binding Division}" />
@@ -72,7 +89,7 @@
                        Text="{Binding Record}" />
 
 
-            </StackPanel>
+        </StackPanel>
 
    </Grid>
  </materialDesign:Card>  

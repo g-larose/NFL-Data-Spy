@@ -13,6 +13,7 @@ namespace API.Models
         public string Name { get; set; } = string.Empty;
         public string Abbr { get; set; } = string.Empty;
         public string Record { get; set; } = string.Empty;
+        public string LogoUri { get; set; } = string.Empty;
         public Division Division { get; set; }
     }
 }
