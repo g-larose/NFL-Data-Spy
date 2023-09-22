@@ -1,4 +1,5 @@
 ﻿using API.Interfaces;
+using API.Models;
 using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
@@ -10,35 +11,32 @@ namespace API.Services
 {
     public class MatchupDataService : IMatchupService
     {
-        /// <summary>
-        /// Get Html Document
-        /// </summary>
-        /// <param name="link"></param>
-        /// <returns>HtmlDocument</returns>
-        #region GET HTMLDOCUMENT
-        public HtmlDocument GetDocument(string link)
+        HtmlDocumentService _docService = new();
+        public async Task<List<Matchup>> GetSeasonSchedule(int year, string teamName)
         {
-            var web = new HtmlWeb();
-            var doc = web.Load(link);
+            var link = $"https://www.footballdb.com/teams/nfl/{teamName}/results/{year}";
+            var doc = _docService.GetDocument(link);
+            List<Matchup> matchups = new();
 
-            return doc;
+            if (doc is not null)
+            {
+                var nodes = doc.DocumentNode.SelectNodes(".//div[@class='lngame']/table");
+                if (nodes is not null)
+                {
+                    foreach (var node in nodes)
+                    {
+                        //here is where we get our info for the matchup.
+                    }
+                }
+               
+            }
+
+            return matchups;
         }
 
-        #endregion
-
-        /// <summary>
-        /// Gets a specific HtmlNode
-        /// </summary>
-        /// <param name="doc"></param>
-        /// <param name="name"></param>
-        /// <returns>HtmlNode</returns>
-        #region GETNODE
-        public HtmlNode GetNode(HtmlDocument doc, string name)
+        public async Task<List<Team>> GetTeamData()
         {
-            HtmlNode? node = doc.DocumentNode.SelectSingleNode(name);
-            return node;
+            throw new NotImplementedException();
         }
-
-        #endregion
     }
 }

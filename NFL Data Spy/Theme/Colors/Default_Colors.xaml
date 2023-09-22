@@ -47,21 +47,42 @@
     <!--  End PrimaryToSecondary  -->
 
     <!--  PrimaryToSecondary 100  -->
-    <LinearGradientBrush x:Key="AccentToAccent100GradientBrush" StartPoint="0,0.5" EndPoint="0.5,1">
+    <LinearGradientBrush x:Key="AccentToAccent100GradientBrush" StartPoint="0,0.5" EndPoint="0.0,1">
         <GradientStop Offset="0.0" Color="{StaticResource SecondaryAccent}" />
         <GradientStop Offset="1.0" Color="{StaticResource SecondaryAccent100}" />
     </LinearGradientBrush>
     <!--  End PrimaryToSecondary  -->
 
     <!--  PrimaryToSecondary 200  -->
-    <LinearGradientBrush x:Key="AccentToAccent200GradientBrush" StartPoint="0,0.5" EndPoint="0.5,1">
+    <LinearGradientBrush x:Key="AccentToAccent200GradientBrush" StartPoint="0,0.5" EndPoint="0.0,1">
         <GradientStop Offset="0.0" Color="{StaticResource SecondaryAccent}" />
         <GradientStop Offset="1.0" Color="{StaticResource SecondaryAccent200}" />
     </LinearGradientBrush>
     <!--  End PrimaryToSecondary  -->
 
+    <!--  PrimaryToSecondary 200  -->
+    <LinearGradientBrush x:Key="AccentToAccent300GradientBrush" StartPoint="0,0.5" EndPoint="0.0,1">
+        <GradientStop Offset="0.0" Color="{StaticResource SecondaryAccent}" />
+        <GradientStop Offset="1.0" Color="{StaticResource SecondaryAccent300}" />
+    </LinearGradientBrush>
+    <!--  End PrimaryToSecondary  -->
+
+    <!--  PrimaryToSecondary 200  -->
+    <LinearGradientBrush x:Key="AccentToAccent400GradientBrush" StartPoint="0,0.5" EndPoint="0.0,1">
+        <GradientStop Offset="0.0" Color="{StaticResource SecondaryAccent}" />
+        <GradientStop Offset="1.0" Color="{StaticResource SecondaryAccent400}" />
+    </LinearGradientBrush>
+    <!--  End PrimaryToSecondary  -->
+
+    <!--  PrimaryToSecondary 200  -->
+    <LinearGradientBrush x:Key="AccentToAccent500GradientBrush" StartPoint="0,0.5" EndPoint="0.0,1">
+        <GradientStop Offset="0.0" Color="{StaticResource SecondaryAccent}" />
+        <GradientStop Offset="1.0" Color="{StaticResource SecondaryAccent500}" />
+    </LinearGradientBrush>
+    <!--  End PrimaryToSecondary  -->
+
     <!--  GreenToLiteGreenGradientBrush  -->
-    <LinearGradientBrush x:Key="GreenToLiteGreenGradientBrush" StartPoint="0,0.5" EndPoint="0.5,1">
+    <LinearGradientBrush x:Key="GreenToLiteGreenGradientBrush" StartPoint="0,0.5" EndPoint="0.0,1">
         <GradientStop Offset="0.0" Color="{StaticResource Accent}" />
         <GradientStop Offset="1.0" Color="{StaticResource Accent200}" />
     </LinearGradientBrush>

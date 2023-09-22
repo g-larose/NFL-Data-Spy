@@ -23,7 +23,7 @@ public partial class DashboardViewModel : ObservableObject
             Name = "ARIZONA CARDINALS",
             Division = Division.AFC_EAST,
             Abbr = "ARI",
-            Record = "3,0,0"
+            Record = "(3 0 0)"
         };
 
         for (int i = 0; i < 10; i++)

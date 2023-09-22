@@ -1,4 +1,5 @@
-﻿using HtmlAgilityPack;
+﻿using API.Models;
+using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace API.Interfaces
 {
     public interface IMatchupService
     {
-        HtmlDocument GetDocument(string link);
-        HtmlNode GetNode(HtmlDocument doc, string name);
+        Task<List<Team>> GetTeamData();
+        Task<List<Matchup>> GetSeasonSchedule(int year, string teamName);
     }
 }

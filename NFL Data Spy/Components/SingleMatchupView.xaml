@@ -6,76 +6,75 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:NFL_Data_Spy.Components"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="200">
+             Height="260" Width="240">
 
+        
     <materialDesign:Card
-  Width="200">
+                    Width="240"
+                    Height="260"
+                    Background="{StaticResource Primary300ColorBrush}">
         <materialDesign:Card.Effect>
-            <DropShadowEffect BlurRadius="10"
-                              ShadowDepth="6"
+            <DropShadowEffect BlurRadius="4"
+                              ShadowDepth="4"
                               Direction="270"
                               Color="Black"
-                              Opacity=".6" />
+                              Opacity=".5"/>
         </materialDesign:Card.Effect>
+           
     <Grid>
-    <Grid.RowDefinitions>
-      <RowDefinition
-        Height="140" />
-      <RowDefinition
-        Height="*" />
-      <RowDefinition
-        Height="Auto" />
-    </Grid.RowDefinitions>
-    <Image
-      Width="196"
-      Height="140"
-      Source="/Images/Logo/ARI.png"
-      Stretch="UniformToFill" />
-    <Button
-      Grid.Row="0"
-      Margin="0,0,16,-20"
-      HorizontalAlignment="Right"
-      VerticalAlignment="Bottom"
-      Style="{StaticResource MaterialDesignFloatingActionMiniSecondaryButton}">
-      <materialDesign:PackIcon
-        Kind="FootballAmerican"
-              Foreground="{StaticResource Primary300ColorBrush}"/>
-    </Button>
-    <StackPanel
-      Grid.Row="1"
-      Margin="8,24,8,0">
-      <TextBlock
-        FontWeight="Bold" 
-        Text="{Binding Name}"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Image Grid.Column="0"
+                    Width="84"
+                    Height="84"
+                    Source="/Images/Logo/ARI.png"
+                    Stretch="UniformToFill" />
+   
+    <StackPanel Grid.Column="0"
+    Grid.Row="1"
+    Margin="8,24,8,0">
+  <TextBlock
+    FontWeight="Bold" 
+    Text="{Binding Name}"/>
+  <TextBlock FontWeight="Black"
+             Text="{Binding Division}" />
 
-      <TextBlock
-        VerticalAlignment="Center"
-        Text="A great way to keep fit and forget about the constant grind of IT."
-        TextWrapping="Wrap" />
-    </StackPanel>
-    <StackPanel
-      Grid.Row="2"
-      Margin="8"
-      HorizontalAlignment="Right"
-      Orientation="Horizontal">
-      <Button
-        Width="30"
-        Padding="2,0,2,0"
-        materialDesign:RippleAssist.IsCentered="True"
-        Style="{StaticResource MaterialDesignToolButton}">
-        <materialDesign:PackIcon
-          Kind="ShareVariant" />
-      </Button>
-      <Button
-        Width="30"
-        Padding="2,0,2,0"
-        materialDesign:RippleAssist.IsCentered="True"
-        Style="{StaticResource MaterialDesignToolButton}">
-       <materialDesign:PackIcon
-          Kind="Heart" />
-          </Button>
-     </StackPanel>
-  </Grid>
-</materialDesign:Card>  
+    <TextBlock TextWrapping="Wrap"
+               VerticalAlignment="Center"
+               Text="{Binding Record}" />
+
+ 
+
+</StackPanel>
+       <Image Grid.Column="1"
+         Width="84"
+         Height="84"
+         Source="/Images/Logo/DAL.png"
+         Stretch="UniformToFill" />
+    
+        <StackPanel Grid.Column="1"
+            Grid.Row="1"
+            Margin="8,24,8,0">
+          <TextBlock
+            FontWeight="Bold" 
+            Text="{Binding Name}"/>
+          <TextBlock FontWeight="Black"
+                     Text="{Binding Division}" />
+
+                <TextBlock TextWrapping="Wrap"
+                       Text="{Binding Record}" />
+
+
+            </StackPanel>
+
+   </Grid>
+ </materialDesign:Card>  
 
 </UserControl>

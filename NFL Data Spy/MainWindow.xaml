@@ -36,7 +36,8 @@
                 <Button
                    Margin="8"
                    Content="{materialDesign:PackIcon Kind=Plus}"
-                   Style="{StaticResource MaterialDesignFloatingActionAccentButton}" />
+                   Style="{StaticResource MaterialDesignFloatingActionAccentButton}" 
+                   Command="{Binding GetSeasonScheduleCommand}"/>
             </materialDesign:NavigationRailAssist.FloatingContent>
             <TabItem>
                 <TabItem.Header>
@@ -53,7 +54,7 @@
                            Text="Dashboard" />
                     </StackPanel>
                 </TabItem.Header>
-                <v:DashboardView />
+                <v:DashboardView Margin="20"/>
             </TabItem>
             <TabItem>
                 <TabItem.Header>
