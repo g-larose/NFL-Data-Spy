@@ -25,7 +25,7 @@ namespace API.Services
                 {
                     foreach (var node in nodes)
                     {
-                        //here is where we get our info for the matchup.
+                        //here is where we get our info for the matchup
                     }
                 }
                
