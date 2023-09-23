@@ -10,6 +10,7 @@ namespace API.Models
     {
         public int Id { get; set; }
         public int Year { get; set; }
+        public string? GameDate { get; set; }
         public Team? AwayTeam { get; set; }
         public Team? HomeTeam { get; set; }
     }

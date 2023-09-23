@@ -68,5 +68,27 @@ namespace API.Extensions
 
             return name;
         }
+
+        public static string ToHtmlteamName(this string value)
+        {
+            var name = value switch
+            {
+                "Cardinals" => "arizona-cardinals",
+                _ => "Unknown"
+            };
+
+            return name;
+        }
+
+        public static string ToLogoUri(this string value)
+        {
+            var url = value switch
+            {
+                "arizona-cardinals" => "Images/Logo/ARI.png",
+                _ => "Unknown"
+            };
+
+            return url;
+        }
     }
 }

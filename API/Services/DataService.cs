@@ -15,9 +15,9 @@ namespace API.Services
         public List<string> LoadTeamNames()
         {
             var json = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "Json", "team_names.json"));
-            var names = JsonSerializer.Deserialize<List<TeamNames>>(json).Select(x => x.Name).ToList();
+            var names = JsonSerializer.Deserialize<List<TeamNames>>(json)?.Select(x => x.Name).ToList();
 
-            return names;
+            return names!;
 
         }
     }

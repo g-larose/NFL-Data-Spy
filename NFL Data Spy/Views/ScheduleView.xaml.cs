@@ -1,4 +1,9 @@
-﻿using System.Text;
+﻿using NFL_Data_Spy.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -9,22 +14,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace NFL_Data_Spy
+namespace NFL_Data_Spy.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ScheduleView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ScheduleView : UserControl
     {
-        public MainWindow()
+        public ScheduleView()
         {
             InitializeComponent();
-        }
-
-        private void OnMouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed)
-                DragMove();
+            DataContext = new ScheduleViewViewModel();
         }
     }
 }

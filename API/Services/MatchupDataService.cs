@@ -1,4 +1,5 @@
-﻿using API.Interfaces;
+﻿using API.Extensions;
+using API.Interfaces;
 using API.Models;
 using HtmlAgilityPack;
 using System;
@@ -14,6 +15,8 @@ namespace API.Services
         HtmlDocumentService _docService = new();
         public async Task<List<Matchup>> GetSeasonSchedule(int year, string teamName)
         {
+            teamName = teamName.ToHtmlteamName();
+            var logoUrl = teamName.ToLogoUri();
             var link = $"https://www.footballdb.com/teams/nfl/{teamName}/results/{year}";
             var doc = _docService.GetDocument(link);
             List<Matchup> matchups = new();
@@ -26,7 +29,10 @@ namespace API.Services
                     foreach (var node in nodes)
                     {
                         //here is where we get our info for the matchup
+                        var homeTeamName = node.ChildNodes[3].ChildNodes[3].ChildNodes[1].InnerText;
+                        var awayTeamName = node.ChildNodes[3].ChildNodes[1].ChildNodes[1].InnerText;
                     }
+
                 }
                
             }
