@@ -40,7 +40,7 @@ namespace API.Services
             return matchups;
         }
 
-        public async Task<List<Team>> GetTeamData()
+        public async Task<List<Team>> GetTeamData(string teamName)
         {
             throw new NotImplementedException();
         }

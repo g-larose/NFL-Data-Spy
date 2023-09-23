@@ -10,7 +10,7 @@ namespace API.Interfaces
 {
     public interface IMatchupService
     {
-        Task<List<Team>> GetTeamData();
+        Task<List<Team>> GetTeamData(string name);
         Task<List<Matchup>> GetSeasonSchedule(int year, string teamName);
     }
 }

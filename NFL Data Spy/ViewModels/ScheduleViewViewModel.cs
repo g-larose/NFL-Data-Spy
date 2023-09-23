@@ -20,16 +20,18 @@ public partial class ScheduleViewViewModel : ObservableObject
     List<string> _teamNames = new();
 
     [ObservableProperty]
+    [NotifyCanExecuteChangedFor(nameof(SearchCommand))]
     private string? _teamname;
 
     [ObservableProperty]
-    private int _season;
+    [NotifyCanExecuteChangedFor(nameof(SearchCommand))]
+    private int _season = 0;
 
-    public bool CanSearch() => Teamname != "" || Teamname is not null;
+    public bool CanSearch() => Teamname is not null && Season != 0;
 
     public ScheduleViewViewModel()
     {
-        LoadMatchups();
+        LoadMatchups(); //TODO: switch this method for the real method in MatchupDataService.
         LoadSeasons();
         TeamNames = _dataService.LoadTeamNames();
     }
@@ -43,14 +45,9 @@ public partial class ScheduleViewViewModel : ObservableObject
     }
 
     [RelayCommand(CanExecute = nameof(CanSearch))]
-    private void OnSearch()
+    private async Task Search()
     {
-        
-        Task.Run(async () =>
-        {
-            Matchups = await _matchupService.GetSeasonSchedule(Season, Teamname!);
-        });
-       
+         Matchups = await _matchupService.GetSeasonSchedule(Season, Teamname!);
     }
 
     private void LoadMatchups()

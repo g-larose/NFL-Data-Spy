@@ -26,8 +26,7 @@
             <ComboBox Width="70"
                       Height="30"
                       materialDesign:HintAssist.Hint="Season"
-                      Text="{Binding Season, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
-                      SelectedItem="{Binding Season}"
+                      SelectedValue="{Binding Season, UpdateSourceTrigger=PropertyChanged}"
                       Foreground="{StaticResource AccentColorBrush}"
                       ItemsSource="{Binding Seasons}">
 
@@ -36,13 +35,14 @@
                    Height="30"
                    Margin="20 0"
                    materialDesign:HintAssist.Hint="Team Name"
-                   Text="{Binding Teamname, UpdateSourceTrigger=PropertyChanged}"
+                   SelectedValue="{Binding Teamname, UpdateSourceTrigger=PropertyChanged}"
+                   
                    Foreground="{StaticResource AccentColorBrush}"
                    ItemsSource="{Binding TeamNames}">
              
          </ComboBox>
          <Button
-               IsEnabled="{Binding CanSearch, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource booltoVisibilityConverter}}"
+               
                Command="{Binding SearchCommand}"
                Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
                ToolTip="Search For Specific Team's Schedule.">
