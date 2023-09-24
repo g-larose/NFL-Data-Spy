@@ -17,19 +17,39 @@ namespace API.Services
         HtmlDocumentService _docService = new();
         IDataService _dataService = new DataService();
 
-        public async Task<List<string>> GetCurrentStandingAsync()
+        public async Task<List<TeamStanding>> GetCurrentStandingAsync()
         {
             var link = "https://www.footballdb.com/standings/index.html";
             var doc = _docService.GetDocument(link);
 
-            var standings = new List<string>();
+            var standings = new List<TeamStanding>();
 
-            var nodes = doc.DocumentNode.SelectNodes(".//table[@class='statistics']/tbody/tr/td/span");
+            var nodes = doc.DocumentNode.SelectNodes(".//table[@class='statistics']");
 
-            for (int i = 0; i < nodes.Count - 1; i+=2)
+            for (int i = 0; i < nodes.Count; i++)
             {
-                var name = nodes[i].InnerText;
-                var test = "";
+                var node = nodes[i].ChildNodes[3];
+                var division = nodes[i].SelectSingleNode(".//thead/tr/td").InnerText;
+                for (int x = 1; x < node.ChildNodes.Count; x+= 2)
+                {
+                   
+                    var detailNodes = node.ChildNodes[x];
+                    var name = detailNodes.ChildNodes[0].ChildNodes[0].InnerText;
+                    var wins = detailNodes.ChildNodes[1].InnerText;
+                    var losses = detailNodes.ChildNodes[2].InnerText;
+                    var ties = detailNodes.ChildNodes[3].InnerText;
+
+                    var standing = new TeamStanding()
+                    {
+                        Teamname = name,
+                        Division = division,
+                        Wins = wins,
+                        Losses = losses,
+                        Ties = ties
+                    };
+
+                    standings.Add(standing);
+                } 
             }
             return standings;
         }

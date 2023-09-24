@@ -18,29 +18,103 @@
             <RowDefinition Height="40" />
             <RowDefinition />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
 
-                   <materialDesign:Chip Content="2023 NFL Standings" />
-       <materialDesign:Card Grid.Row="1"
-                            Height="Auto"
-                            VerticalAlignment="Top"
-                            Margin="10"
-                            Background="Transparent">
-           <StackPanel>
-               <Expander HorizontalAlignment="Stretch"
-                         Header="AFC EAST"
-                         Foreground="{StaticResource AccentToAccent400GradientBrush}"
-                         Background="Transparent">
-                   <StackPanel Margin="24,8,24,16"
-                        Orientation="Vertical"
-                        TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
-                       <TextBlock Text="Your Content" />
+    <materialDesign:Chip Content="2023 NFL Standings AFC" 
+                        Grid.Column="0"/>
+    <materialDesign:Card Grid.Row="1"
+                        Grid.Column="0"
+                        Height="Auto"
+                        Width="460"
+                        VerticalAlignment="Top"
+                        Margin="10"
+                        Background="Transparent">
+        <StackPanel>
+            <Expander HorizontalAlignment="Stretch"
+                        Header="AFC EAST"
+                        Foreground="{StaticResource AccentToAccent400GradientBrush}"
+                        Background="Transparent">
+                <StackPanel Margin="24 0"
+                    Orientation="Vertical"
+                    TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="160" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="{Binding Standings[0].Teamname}"
+                                       Grid.Column="0" 
+                                       Margin="4"
+                                       Foreground="LightGreen"
+                                       FontSize="14"/>
+                             <TextBlock Text="{Binding Standings[1].Teamname}"
+                                        Grid.Column="0"
+                                        Grid.Row="1"
+                                        Margin="4"
+                                        Foreground="LightGreen"
+                                        FontSize="14"/>
+                             <TextBlock Text="{Binding Standings[2].Teamname}"
+                                        Grid.Column="0"
+                                        Grid.Row="2"
+                                        Margin="4"
+                                        Foreground="LightGreen"
+                                        FontSize="14"/>
+                             <TextBlock Text="{Binding Standings[3].Teamname}"
+                                         Grid.Column="0"
+                                         Grid.Row="3"
+                                         Margin="4"
+                                         Foreground="LightGreen"
+                                         FontSize="14"/>
+                            <StackPanel Orientation="Horizontal"
+                                        Grid.Column="1"
+                                        Grid.Row="0">
+                                
+                                <TextBlock Text="{Binding Standings[0].Wins}" Margin="6" />
+                                <TextBlock Text="{Binding Standings[0].Losses}" Margin="6" />
+                                <TextBlock Text="{Binding Standings[0].Ties}" Margin="6" />
+                            </StackPanel>
+                           
+                            <StackPanel Orientation="Horizontal"
+                                        Grid.Column="1"
+                                        Grid.Row="1">
+                                
+                                <TextBlock Text="{Binding Standings[1].Wins}" Margin="6" />
+                                <TextBlock Text="{Binding Standings[1].Losses}" Margin="6" />
+                                <TextBlock Text="{Binding Standings[1].Ties}" Margin="6" />
+                            </StackPanel>
+                             <StackPanel Orientation="Horizontal"
+                                         Grid.Column="1"
+                                         Grid.Row="2">
+     
+                                    <TextBlock Text="{Binding Standings[2].Wins}" Margin="6" />
+                                    <TextBlock Text="{Binding Standings[2].Losses}" Margin="6" />
+                                    <TextBlock Text="{Binding Standings[2].Ties}" Margin="6" />
+                             </StackPanel>
+                             <StackPanel Orientation="Horizontal"
+                                         Grid.Column="1"
+                                         Grid.Row="2">
+     
+                                    <TextBlock Text="{Binding Standings[3].Wins}" Margin="6" />
+                                    <TextBlock Text="{Binding Standings[3].Losses}" Margin="6" />
+                                    <TextBlock Text="{Binding Standings[3].Ties}" Margin="6" />
+                             </StackPanel>
+                        </Grid>
 
-                   </StackPanel>
-               </Expander>
-                <Expander HorizontalAlignment="Stretch"
-                          Header="AFC WEST"
-                           Foreground="{StaticResource AccentToAccent400GradientBrush}"
-                          Background="Transparent">
+                </StackPanel>
+            </Expander>
+            <Expander HorizontalAlignment="Stretch"
+                        Header="AFC WEST"
+                        Foreground="{StaticResource AccentToAccent400GradientBrush}"
+                        Background="Transparent">
     <StackPanel Margin="24,8,24,16"
          Orientation="Vertical"
          TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
@@ -78,7 +152,67 @@
 </Expander>
 </StackPanel>
 </materialDesign:Card>
+    <materialDesign:Chip Content="2023 NFL Standings NFC" 
+                        Grid.Column="1"/>
+    <materialDesign:Card Grid.Row="1"
+                        Grid.Column="1"
+                        Height="Auto"
+                        VerticalAlignment="Top"
+                        Margin="10"
+                        Background="Transparent">
+        <StackPanel>
+            <Expander HorizontalAlignment="Stretch"
+                        Header="NFC EAST"
+                        Foreground="{StaticResource AccentToAccent400GradientBrush}"
+                        Background="Transparent">
+                <StackPanel Margin="24,8,24,16"
+                    Orientation="Vertical"
+                    TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
+                    <TextBlock Text="Your Content" />
 
+                </StackPanel>
+            </Expander>
+            <Expander HorizontalAlignment="Stretch"
+                        Header="NFC WEST"
+                        Foreground="{StaticResource AccentToAccent400GradientBrush}"
+                        Background="Transparent">
+    <StackPanel Margin="24,8,24,16"
+         Orientation="Vertical"
+         TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
+        <TextBlock Text="Your Content" />
+
+    </StackPanel>
+</Expander>
+    <Expander HorizontalAlignment="Stretch"
+                Header="NFC NORTH"
+                Foreground="{StaticResource AccentToAccent400GradientBrush}"
+                Background="Transparent">
+    <StackPanel Margin="24,8,24,16"
+         Orientation="Vertical"
+         TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
+        <TextBlock Text="Your Content" />
+
+    </StackPanel>
+</Expander>
+    <Expander HorizontalAlignment="Stretch"
+                Header="NFC SOUTH"
+                Foreground="{StaticResource AccentToAccent400GradientBrush}"
+                Background="Transparent">
+    <StackPanel Margin="24,8,24,16"
+         Orientation="Vertical"
+         TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="Your Content" />
+                            <TextBlock Text="Your Content" />
+                            <TextBlock Text="Your Content" />
+                            <TextBlock Text="Your Content" />
+                        </StackPanel>
+        
+
+    </StackPanel>
+</Expander>
+</StackPanel>
+</materialDesign:Card>
         
  </Grid>
 </UserControl>

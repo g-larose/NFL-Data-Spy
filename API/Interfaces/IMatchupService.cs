@@ -12,6 +12,6 @@ namespace API.Interfaces
     {
         Task<List<Team>> GetTeamData(string name);
         Task<List<Matchup>> GetSeasonSchedule(int year, string teamName);
-        Task<List<string>> GetCurrentStandingAsync();
+        Task<List<TeamStanding>> GetCurrentStandingAsync();
     }
 }
