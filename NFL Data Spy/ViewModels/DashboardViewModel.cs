@@ -11,5 +11,9 @@ namespace NFL_Data_Spy.ViewModels;
 
 public partial class DashboardViewModel : ObservableObject
 {
-    
+    IMatchupService _matchupService = new MatchupDataService();
+    public DashboardViewModel()
+    {
+        var standings = _matchupService.GetCurrentStandingAsync();
+    }
 }

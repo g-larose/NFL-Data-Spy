@@ -47,6 +47,8 @@ public partial class ScheduleViewViewModel : ObservableObject
     private async Task Search()
     {
          Matchups = await _matchupService.GetSeasonSchedule(Season, Teamname!);
+        Teamname = null;
+        Season = 0;
     }
 
     private void LoadMatchups()

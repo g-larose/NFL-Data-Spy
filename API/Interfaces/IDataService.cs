@@ -9,5 +9,6 @@ namespace API.Interfaces
     public interface IDataService
     {
         public List<string> LoadTeamNames();
+        public string GetEnumDescription(Enum value);
     }
 }

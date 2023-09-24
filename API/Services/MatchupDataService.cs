@@ -7,12 +7,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace API.Services
 {
     public class MatchupDataService : IMatchupService
     {
         HtmlDocumentService _docService = new();
+        IDataService _dataService = new DataService();
+
+        public async Task<List<string>> GetCurrentStandingAsync()
+        {
+            var link = "https://www.footballdb.com/standings/index.html";
+            var doc = _docService.GetDocument(link);
+
+            var standings = new List<string>();
+
+            var nodes = doc.DocumentNode.SelectNodes(".//table[@class='statistics']/tbody/tr/td/span");
+
+            for (int i = 0; i < nodes.Count - 1; i+=2)
+            {
+                var name = nodes[i].InnerText;
+                var test = "";
+            }
+            return standings;
+        }
+
+        /// <summary>
+        /// GET SEASON SCHEDULE
+        /// </summary>
+        /// <param name="year"></param>
+        /// <param name="teamName"></param>
+        /// <returns>List</Matchup></returns>
+        #region GET SEASON SCHEDULE
         public async Task<List<Matchup>> GetSeasonSchedule(int year, string teamName)
         {
             teamName = teamName.ToHtmlteamName();
@@ -50,9 +78,7 @@ namespace API.Services
                         var homeTeamEndIndex = homeTeamName.IndexOf(")");
                         var awayTeamEndIndex = awayTeamName.IndexOf(")");
 
-                        var homeRecordIndex = homeTeamName.IndexOf("(");
                         var homeRecordLength = homeTeamEndIndex - homeTeamStartIndex;
-                        var awayRecordIndex = awayTeamName.IndexOf("(");
                         var awayRecordLength = awayTeamEndIndex - awayTeamStartIndex;
 
                         var homeTeamRecord = homeTeamName.Substring(homeTeamStartIndex, homeRecordLength + 1);
@@ -64,15 +90,16 @@ namespace API.Services
                         var awayTeamDivision = awayTeamNameFinal.ToDivisionString();
                         var homeTeamDivision = homeTeamNameFinal.ToDivisionString();
 
+
                         awayTeam.Name = awayTeamNameFinal;
                         awayTeam.Record = awayTeamRecord;
                         awayTeam.LogoUri = awayTeamLogoUri;
-                        awayTeam.Division = awayTeamDivision.ToDivision();
+                        awayTeam.Division = awayTeamDivision;
 
                         homeTeam.Name = homeTeamNameFinal;
                         homeTeam.Record = homeTeamRecord;
                         homeTeam.LogoUri = homeTeamLogoUri;
-                        homeTeam.Division = homeTeamDivision.ToDivision();
+                        homeTeam.Division = homeTeamDivision;
 
                         var matchup = new Matchup()
                         {
@@ -90,6 +117,8 @@ namespace API.Services
 
             return matchups;
         }
+
+        #endregion
 
         public async Task<List<Team>> GetTeamData(string teamName)
         {

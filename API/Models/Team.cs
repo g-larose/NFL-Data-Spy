@@ -14,6 +14,6 @@ namespace API.Models
         public string Abbr { get; set; } = string.Empty;
         public string Record { get; set; } = string.Empty;
         public string LogoUri { get; set; } = string.Empty;
-        public Division Division { get; set; }
+        public string Division { get; set; }
     }
 }
