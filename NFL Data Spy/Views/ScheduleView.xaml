@@ -21,8 +21,8 @@
      </Grid.RowDefinitions>
      <StackPanel Grid.Row="0"
                  Orientation="Horizontal"
-                 HorizontalAlignment="Right"
-                 Margin="0 0 20 10">
+                 HorizontalAlignment="Left"
+                 Margin="20 0 20 10">
             <ComboBox Width="70"
                       Height="30"
                       materialDesign:HintAssist.Hint="Season"

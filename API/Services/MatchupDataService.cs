@@ -21,8 +21,7 @@ namespace API.Services
             var doc = _docService.GetDocument(link);
 
             List<Matchup> matchups = new();
-            Team awayTeam = new();
-            Team homeTeam = new();
+            
 
             if (doc is not null)
             {
@@ -33,10 +32,12 @@ namespace API.Services
 
                     for (int i = 0; i < nodes.Count; i++)
                     {
-                        var node = nodes[i];
+                        Team awayTeam = new();
+                        Team homeTeam = new();
+                        var node = nodes[i]; 
                         var gameDate = node.SelectSingleNode(".//th[@class='left']").InnerText;
-                        var homeTeamName = node.ChildNodes[3].ChildNodes[3].ChildNodes[1].InnerText;
-                        var awayTeamName = node.ChildNodes[3].ChildNodes[1].ChildNodes[1].InnerText;
+                        var homeTeamName = node.ChildNodes[3].ChildNodes[3].InnerText;
+                        var awayTeamName = node.ChildNodes[3].ChildNodes[1].InnerText;
 
                         var homeTeamNameFinal = homeTeamName.Split("(")[0].Trim();
                         var awayTeamNameFinal = awayTeamName.Split("(")[0].Trim();
@@ -44,25 +45,32 @@ namespace API.Services
                         var homeTeamLogoUri = homeTeamNameFinal.ToLogoUri();
                         var awayTeamLogoUri = awayTeamNameFinal.ToLogoUri();
 
+                        var homeTeamStartIndex = homeTeamName.IndexOf("(");
+                        var awayTeamStartIndex = awayTeamName.IndexOf("(");
+                        var homeTeamEndIndex = homeTeamName.IndexOf(")");
+                        var awayTeamEndIndex = awayTeamName.IndexOf(")");
+
                         var homeRecordIndex = homeTeamName.IndexOf("(");
+                        var homeRecordLength = homeTeamEndIndex - homeTeamStartIndex;
                         var awayRecordIndex = awayTeamName.IndexOf("(");
+                        var awayRecordLength = awayTeamEndIndex - awayTeamStartIndex;
 
-                        //var homeTeamRecord = homeTeamName.Split("(")[1];
-                        //var awayTeamRecord = awayTeamName.Split("(")[1];
+                        var homeTeamRecord = homeTeamName.Substring(homeTeamStartIndex, homeRecordLength + 1);
+                        var awayTeamRecord = awayTeamName.Substring(awayTeamStartIndex, awayRecordLength + 1);
 
-                        var awayRecord = awayTeamName.Substring(awayRecordIndex - 1);
-                        var homeRecord = homeTeamName.Substring(homeRecordIndex - 1);
+                        //var awayRecord = awayTeamRecord.Split("\n")[0];
+                        //var homeRecord = homeTeamName.Substring(homeRecordIndex - 1);
 
                         var awayTeamDivision = awayTeamNameFinal.ToDivisionString();
                         var homeTeamDivision = homeTeamNameFinal.ToDivisionString();
 
                         awayTeam.Name = awayTeamNameFinal;
-                        awayTeam.Record = awayRecord;
+                        awayTeam.Record = awayTeamRecord;
                         awayTeam.LogoUri = awayTeamLogoUri;
                         awayTeam.Division = awayTeamDivision.ToDivision();
 
                         homeTeam.Name = homeTeamNameFinal;
-                        homeTeam.Record = homeRecord;
+                        homeTeam.Record = homeTeamRecord;
                         homeTeam.LogoUri = homeTeamLogoUri;
                         homeTeam.Division = homeTeamDivision.ToDivision();
 
