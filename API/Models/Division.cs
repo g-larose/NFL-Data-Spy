@@ -15,6 +15,7 @@ namespace API.Models
        NFC_EAST,
        NFC_NORTH,
        NFC_SOUTH,
-       NFC_WEST
+       NFC_WEST,
+       UNKNOWN,
     }
 }

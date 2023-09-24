@@ -31,7 +31,6 @@ public partial class ScheduleViewViewModel : ObservableObject
 
     public ScheduleViewViewModel()
     {
-        LoadMatchups(); //TODO: switch this method for the real method in MatchupDataService.
         LoadSeasons();
         TeamNames = _dataService.LoadTeamNames();
     }
@@ -52,26 +51,9 @@ public partial class ScheduleViewViewModel : ObservableObject
 
     private void LoadMatchups()
     {
-        var team = new Team()
+        Task.Run(async () =>
         {
-            Identifier = Guid.NewGuid(),
-            Name = "ARIZONA CARDINALS",
-            Division = Division.AFC_EAST,
-            Abbr = "ARI",
-            Record = "(3 0 0)",
-            LogoUri = "/Images/Logo/ARI.png"
-        };
-
-        var matchup = new Matchup()
-        {
-            Year = Season,
-            AwayTeam = team,
-            HomeTeam = team
-        };
-
-        for (int i = 0; i < 10; i++)
-        {
-            Matchups!.Add(matchup);
-        }
+            Matchups = await _matchupService.GetSeasonSchedule(Season, Teamname);
+        });
     }
 }

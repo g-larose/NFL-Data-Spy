@@ -9,19 +9,18 @@ namespace API.Extensions
 {
     public static class StringExtension
     {
-        //TODO finish ToHtmlteamName method and ToLogoUri method
 
         public static string ToStringDivision(this Division division)
         {
             var result = division switch
             {
-                Division.AFC_EAST => "AFC EAST",
+                Division.AFC_EAST  => "AFC EAST",
                 Division.AFC_NORTH => "AFC NORTH",
-                Division.AFC_WEST => "AFC WEST",
+                Division.AFC_WEST  => "AFC WEST",
                 Division.AFC_SOUTH => "AFC SOUTH",
-                Division.NFC_EAST => "NFC EAST",
+                Division.NFC_EAST  => "NFC EAST",
                 Division.NFC_NORTH => "NFC NORTH",
-                Division.NFC_WEST => "NFC WEST",
+                Division.NFC_WEST  => "NFC WEST",
                 Division.NFC_SOUTH => "NFC SOUTH",
                 _ => "UNKNOWN DIVISION"
             };
@@ -31,41 +30,42 @@ namespace API.Extensions
 
         public static string ToTeamAbr(this string teamName)
         {
+            //TODO: fix the names.
             var name = teamName switch
             {
-                "arizona" => "ARI",
-                "atlanta" => "ATL",
-                "baltimore" => "BAL",
-                "buffalo" => "BUF",
-                "carolina" => "CAR",
-                "chicago" => "CHI",
-                "cincinnati" => "CIN",
-                "cleveland" => "CLE",
-                "dallas" => "DAL",
-                "denver" => "DEN",
-                "detroit" => "DET",
-                "green bay" => "GB",
-                "texans" => "HOU",
-                "tennessee" => "HOU",
+                "arizona"      => "ARI",
+                "atlanta"      => "ATL",
+                "baltimore"    => "BAL",
+                "buffalo"      => "BUF",
+                "carolina"     => "CAR",
+                "chicago"      => "CHI",
+                "cincinnati"   => "CIN",
+                "cleveland"    => "CLE",
+                "dallas"       => "DAL",
+                "denver"       => "DEN",
+                "detroit"      => "DET",
+                "green bay"   => "GB",
+                "texans"       => "HOU",
+                "tennessee"    => "HOU",
                 "indianapolis" => "IND",
                 "jacksonville" => "JAC",
-                "kansas city" => "KC",
-                "las vegas" => "LV",
-                "chargers" => "LAC",
-                "la rams" => "LAR",
-                "miami" => "MIA",
-                "minnesota" => "MIN",
-                "new england" => "NE",
-                "new orleans" => "NO",
-                "ny giants" => "NYG",
-                "ny jets" => "NYJ",
+                "kansas city"  => "KC",
+                "las vegas"    => "LV",
+                "chargers"     => "LAC",
+                "la rams"      => "LAR",
+                "miami"        => "MIA",
+                "minnesota"    => "MIN",
+                "new england"  => "NE",
+                "new orleans"  => "NO",
+                "ny giants"    => "NYG",
+                "ny jets"      => "NYJ",
                 "philadelphia" => "PHI",
-                "pittsburgh" => "PIT",
-                "49ers" => "SF",
-                "seattle" => "SEA",
-                "tampa bay" => "TB",
-                "titans" => "TEN",
-                "washington" => "WAS",
+                "pittsburgh"   => "PIT",
+                "49ers"        => "SF",
+                "seattle"      => "SEA",
+                "tampa bay"    => "TB",
+                "titans"       => "TEN",
+                "washington"   => "WAS",
                 _ => "Unknown"
             };
 
@@ -118,42 +118,103 @@ namespace API.Extensions
         {
             var url = value switch
             {
-                "arizona-cardinals"     => "Images/Logo/ARI.png",
-                "atlanta-falcons"       => "Images/Logo/ATL.png",
-                "baltimore-ravens"      => "Images/Logo/BAL.png",
-                "buffalo-bills"         => "Images/Logo/BUF.png",
-                "carolina-panthers"     => "Images/Logo/CAR.png",
-                "chicago-bears"         => "Images/Logo/CHI.png",
-                "cincinnati-bengals"    => "Images/Logo/CIN/png",
-                "cleveland-browns"      => "Images/Logo/CLE.png",
-                "dallas-cowboys"        => "Images/Logo/DAL.png",
-                "denver-broncos"        => "Images/Logo/DEN.png",
-                "detroit-lions"         => "Images/Logo/DET.png",
-                "greenbay-packers"      => "Images/Logo/GB.png",
-                "houston-texans"        => "Images/Logo/HOU.png",
-                "indianapolis-colts"    => "Images/Logo/IND.png",
-                "jacksonville-jaguars"  => "Images/Logo/JAC.png",
-                "kansas-city-chiefs"    => "Images/Logo/KC.png",
-                "los-angeles--rams"     => "Images/Logo/LAR.png",
-                "miami-dolphins"        => "Images/Logo/MIA.png",
-                "minnesota-vikings"     => "Images/Logo/MIN.png",
-                "new-england-patriots"  => "Images/Logo/NE.png",
-                "new-orleans-saints"    => "Images/Logo/NO.png",
-                "new-york-giants"       => "Images/Logo/NYG.png",
-                "new-york-jets"         => "Images/Logo/NYJ.png",
-                "las-vegas-raiders"     => "Images/Logo/LAR.png",
-                "philadelphia-eagles"   => "Images/Logo/PHI.png",
-                "pittsburgh-steelers"   => "Images/Logo/PIT.png",
-                "loa-angeles-chargers"  => "Images/Logo/LAC.png",
-                "san-francisco-49ers"   => "Images/Logo/SF.png",
-                "seattle-seahawks"      => "Images/Logo/SEA.png",
-                "tampa-bay-buccaneers"  => "Images/Logo/TB.png",
-                "tennessee-titans"      => "Images/Logo/TEN.png",
-                "washington-commanders" => "Images/Logo/WAS.png",
+                "Arizona"       => "/Images/Logo/ARI.png",
+                "Atlanta"       => "/Images/Logo/ATL.png",
+                "Baltimore"     => "/Images/Logo/BAL.png",
+                "Buffalo"       => "/Images/Logo/BUF.png",
+                "Panthers"      => "/Images/Logo/CAR.png",
+                "Chicago"       => "/Images/Logo/CHI.png",
+                "Cincinnati"    => "/Images/Logo/CIN/png",
+                "Cleveland"     => "/Images/Logo/CLE.png",
+                "Dallas"        => "/Images/Logo/DAL.png",
+                "Denver"        => "/Images/Logo/DEN.png",
+                "Lions"         => "/Images/Logo/DET.png",
+                "Packers"       => "/Images/Logo/GB.png",
+                "Houston"       => "/Images/Logo/HOU.png",
+                "Colts"         => "/Images/Logo/IND.png",
+                "Jaguars"       => "/Images/Logo/JAC.png",
+                "Kansas City"   => "/Images/Logo/KC.png",
+                "LA Rams"       => "/Images/Logo/LAR.png",
+                "Miami"         => "/Images/Logo/MIA.png",
+                "Minnesota"     => "/Images/Logo/MIN.png",
+                "Patriots"      => "/Images/Logo/NE.png",
+                "Saints"        => "/Images/Logo/NO.png",
+                "NY Giants"     => "/Images/Logo/NYG.png",
+                "Jets"          => "/Images/Logo/NYJ.png",
+                "Raiders"       => "/Images/Logo/LAR.png",
+                "Philadelphia"  => "/Images/Logo/PHI.png",
+                "Pittsburgh"    => "/Images/Logo/PIT.png",
+                "Chargers"      => "/Images/Logo/LAC.png",
+                "San Francisco" => "/Images/Logo/SF.png",
+                "Seattle"       => "/Images/Logo/SEA.png",
+                "Tampa Bay"     => "/Images/Logo/TB.png",
+                "Titans"        => "/Images/Logo/TEN.png",
+                "Washington"    => "/Images/Logo/WAS.png",
                 _ => "Unknown"
             };
 
             return url;
+        }
+
+        public static string ToDivisionString(this string value)
+        {
+            var division = value switch
+            {
+                "Arizona"       => "NFC_WEST",
+                "Atlanta"       => "NFC_SOUTH",
+                "Baltimore"     => "AFC_NORTH",
+                "Buffalo"       => "AFC_EAST",
+                "Panthers"      => "NFC_SOUTH",
+                "Chicago"       => "NFC_NORTH",
+                "Cincinnati"    => "AFC_NORTH",
+                "Cleveland"     => "AFC_NORTH",
+                "Dallas"        => "NFC_EAST",
+                "Denver"        => "AFC_WEST",
+                "Lions"         => "NFC_NORTH",
+                "Packers"       => "NFC_NORTH",
+                "Houston"       => "AFC_SOUTH",
+                "Colts"         => "AFC_SOUTH",
+                "Jaguars"       => "AFC_SOUTH",
+                "Kansas City"   => "AFC_WEST",
+                "LA Rams"       => "NFC_WEST",
+                "Miami"         => "AFC_EAST",
+                "Minnesota"     => "NFC_NORTH",
+                "Patriots"      => "AFC_EAST",
+                "Saints"        => "NFC_SOUTH",
+                "NY Giants"     => "NFC_EAST",
+                "Jets"          => "AFC_EAST",
+                "Raiders"       => "AFC_WEST",
+                "Philadelphia"  => "NFC_EAST",
+                "Pittsburgh"    => "AFC_NORTH",
+                "Chargers"      => "AFC_WEST",
+                "San Francisco" => "NFC_WEST",
+                "Seattle"       => "NFC_WEST",
+                "Tampa Bay"     => "NFC_SOUTH",
+                "Titans"        => "AFC_SOUTH",
+                "Washington"    => "NFC_EAST",
+                _ => "Unknown"
+
+            };
+
+             return division;
+        }
+
+        public static Division ToDivision(this string value)
+        {
+            var result = value switch
+            {
+                "AFC_EAST" => Division.AFC_EAST,
+                "AFC_WEST" => Division.AFC_WEST,
+                "AFC_NORTH" => Division.AFC_NORTH,
+                "AFC_SOUTH" => Division.AFC_SOUTH,
+                "NFC_EAST" => Division.NFC_EAST,
+                "NFC_WEST" => Division.NFC_WEST,
+                "NFC_NORTH" => Division.NFC_NORTH,
+                "NFC_SOUTH" => Division.NFC_SOUTH,
+                _ => Division.UNKNOWN,
+            };
+
+            return result;
         }
     }
 }
