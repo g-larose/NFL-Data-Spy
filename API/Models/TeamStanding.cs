@@ -8,6 +8,7 @@ namespace API.Models
 {
     public class TeamStanding
     {
+        public int Id { get; set; }
         public string? Teamname { get; set; }
         public string? Division { get; set; }
         public string? Wins { get; set; }
