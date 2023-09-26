@@ -9,8 +9,9 @@
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance Type=vm:DashboardViewModel,
                                   IsDesignTimeCreatable=False}"
-             Height="Auto"
+             Height="1000"
              Width="1000">
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
@@ -22,22 +23,26 @@
         </Grid.ColumnDefinitions>
 
     <materialDesign:Chip Content="2023 NFL Standings AFC" 
-                        Grid.Column="0"/>
-    <materialDesign:Card Grid.Row="1"
+                         Grid.Column="0"
+                         Margin="36 0"/>
+
+            
+   <materialDesign:Card Grid.Row="1"
                         Grid.Column="0"
                         Height="Auto"
                         Width="460"
                         VerticalAlignment="Top"
-                        Margin="10"
+                        Margin="10 20"
                         Background="Transparent">
-    <StackPanel>
-        <Expander HorizontalAlignment="Stretch"
-                    Header="EAST"
-                    Foreground="{StaticResource AccentToAccent400GradientBrush}"
-                    Background="Transparent">
-            <StackPanel Margin="24 0"
-                Orientation="Vertical"
-                TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
+    <StackPanel Height="600">
+                <Expander HorizontalAlignment="Stretch"
+                          Header="EAST"
+                          Height="Auto"
+                          Foreground="{StaticResource AccentToAccent400GradientBrush}"
+                          Background="Transparent">
+                    <StackPanel Margin="24 0"
+                                Orientation="Vertical"
+                                TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="160" />
@@ -130,9 +135,10 @@
             </StackPanel>
         </Expander>
         <Expander HorizontalAlignment="Stretch"
-                    Header="NORTH"
-                    Foreground="{StaticResource AccentToAccent400GradientBrush}"
-                    Background="Transparent">
+                  Header="NORTH"
+                  Height="Auto"
+                  Foreground="{StaticResource AccentToAccent400GradientBrush}"
+                  Background="Transparent">
                 <StackPanel Margin="24,8,24,16"
                             Orientation="Vertical"
                             TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
@@ -142,6 +148,7 @@
             </Expander>
             <Expander HorizontalAlignment="Stretch"
                         Header="SOUTH"
+                        Height="Auto"
                         Foreground="{StaticResource AccentToAccent400GradientBrush}"
                         Background="Transparent">
                 <StackPanel Margin="24,8,24,16"
@@ -152,9 +159,10 @@
                 </StackPanel>
             </Expander>
             <Expander HorizontalAlignment="Stretch"
-                        Header="WEST"
-                        Foreground="{StaticResource AccentToAccent400GradientBrush}"
-                        Background="Transparent">
+                      Header="WEST"
+                      Height="Auto"
+                      Foreground="{StaticResource AccentToAccent400GradientBrush}"
+                      Background="Transparent">
                 <StackPanel Margin="24,8,24,16"
                             Orientation="Vertical"
                             TextBlock.Foreground="{DynamicResource MaterialDesignBody}">
@@ -168,8 +176,10 @@
             </Expander>
 </StackPanel>
 </materialDesign:Card>
+
     <materialDesign:Chip Content="2023 NFL Standings NFC" 
-                        Grid.Column="1"/>
+                        Grid.Column="1"
+                         Margin="26 0"/>
     <materialDesign:Card Grid.Row="1"
                         Grid.Column="1"
                         Height="Auto"

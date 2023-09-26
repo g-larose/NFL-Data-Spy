@@ -30,10 +30,11 @@
                 <RowDefinition Height="30" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-
+            
+            <!-- HEADER -->
             <Border Grid.Row="0"
                     CornerRadius="18 18 0 0"
-                    Background="{StaticResource SecondaryAccentColorBrush}"
+                    Background="{StaticResource Primary300ColorBrush}"
                     MouseDown="OnMouseDown">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -41,14 +42,41 @@
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0"
+                               Text="NFL Data Spy"
+                               Foreground="{StaticResource AccentToAccent500GradientBrush}"
+                               FontSize="18"
+                               FontWeight="Black"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Center"
+                               Margin="20 0"/>
+                    <Button Grid.Column="2"
+                            Width="20"
+                            Height="20"
+                            Background="{x:Null}"
+                            BorderBrush="{x:Null}"
+                            BorderThickness="0"
+                            HorizontalAlignment="Right"
+                            Margin="20 0">
+                        <Button.Content>
+                            <materialDesign:PackIcon Kind="Close" 
+                                                     Foreground="{StaticResource Primary200ColorBrush}"
+                                                     Height="20"
+                                                     Width="20"
+                                                     HorizontalAlignment="Center"/>
+                        </Button.Content>
+                        
+                    </Button>
                 </Grid>
                 
             </Border>
+            <!-- END HEADER -->
+            
         <TabControl Grid.Row="1"
                     Margin="0 20 0 0"
-                    Width="1160" Height="760"
+                    Width="1160" Height="Auto"
                     Background="Transparent"
-                    materialDesign:NavigationRailAssist.ShowSelectionBackground="True"
+                    materialDesign:NavigationRailAssist.ShowSelectionBackground="False"
                     SnapsToDevicePixels="True"
                     Style="{StaticResource MaterialDesignNavigationRailTabControl}"
                     TabStripPlacement="Left">
@@ -74,8 +102,12 @@
                     </StackPanel>
                 </TabItem.Header>
                     <TabItem.Content>
-                        <v:DashboardView Margin="10 10" 
-                                         VerticalAlignment="Top"/>
+                        <StackPanel Height="Auto">
+                            <v:DashboardView Margin="10 10" 
+                                         VerticalAlignment="Top"
+                                         Height="Auto"/>
+                        </StackPanel>
+                        
                     </TabItem.Content>
             </TabItem>
             <TabItem>
