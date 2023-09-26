@@ -27,11 +27,11 @@
         </Border.Effect>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="30" />
+                <RowDefinition Height="40" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             
-            <!-- HEADER -->
+         <!--#region HEADER -->
             <Border Grid.Row="0"
                     CornerRadius="18 18 0 0"
                     Background="{StaticResource Primary300ColorBrush}"
@@ -70,7 +70,7 @@
                 </Grid>
                 
             </Border>
-            <!-- END HEADER -->
+            <!--#endregion END HEADER -->
             
         <TabControl Grid.Row="1"
                     Margin="0 20 0 0"
@@ -86,6 +86,8 @@
                    Content="{materialDesign:PackIcon Kind=Plus}"
                    Style="{StaticResource MaterialDesignFloatingActionAccentButton}" />
             </materialDesign:NavigationRailAssist.FloatingContent>
+            
+         <!--#region DASHBOARD-->
             <TabItem>
                 <TabItem.Header>
                     <StackPanel
@@ -96,9 +98,7 @@
                            Height="24"
                            HorizontalAlignment="Center"
                            Kind="ViewDashboard" />
-                        <TextBlock
-                           HorizontalAlignment="Center"
-                           Text="Dashboard" />
+
                     </StackPanel>
                 </TabItem.Header>
                     <TabItem.Content>
@@ -110,6 +110,9 @@
                         
                     </TabItem.Content>
             </TabItem>
+         <!--#endregion-->
+            
+         <!--#region SCHEDULE-->
             <TabItem>
                 <TabItem.Header>
                     <StackPanel
@@ -120,9 +123,7 @@
                                  Height="24"
                                  HorizontalAlignment="Center"
                                  Kind="ClockOutline" />
-                        <TextBlock
-                             HorizontalAlignment="Center"
-                             Text="Schedule" />
+
                     </StackPanel>
                 </TabItem.Header>
                     <TabItem.Content>
@@ -131,6 +132,9 @@
               
                
             </TabItem>
+         <!--#endregion-->
+            
+         <!--#region SCOREBOARD-->
             <TabItem>
                 <TabItem.Header>
                     <StackPanel
@@ -140,10 +144,8 @@
                                  Width="24"
                                  Height="24"
                                  HorizontalAlignment="Center"
-                                 Kind="Images" />
-                        <TextBlock
-                              HorizontalAlignment="Center"
-                              Text="Stats" />
+                                 Kind="Scoreboard" />
+
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel
@@ -157,13 +159,15 @@
             Text="tab 3 content. Default look and behaviors." />
           <LineBreak />
           <LineBreak />
-          <Run
-            FontStyle="Italic">
-          Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
-        </Run>
+          <Run FontStyle="Italic">
+                 Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
+           </Run>
                     </TextBlock>
                 </StackPanel>
             </TabItem>
+            <!--#endregion-->
+            
+         <!--#region  SETTINGS-->
             <TabItem>
                 <TabItem.Header>
                     <StackPanel
@@ -174,9 +178,7 @@
                                          Height="24"
                                          HorizontalAlignment="Center"
                                          Kind="Settings" />
-                        <TextBlock
-                               HorizontalAlignment="Center"
-                               Text="Settings" />
+
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel
@@ -186,17 +188,18 @@
                            Style="{StaticResource MaterialDesignHeadline5TextBlock}"
                            Text="Settings" />
                     <TextBlock>
-          <Run
-            Text="tab 4 content. Default look and behaviors." />
-          <LineBreak />
-          <LineBreak />
-          <Run
-            FontStyle="Italic">
-          Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
-        </Run>
-                    </TextBlock>
+              <Run
+                Text="tab 4 content. Default look and behaviors." />
+              <LineBreak />
+              <LineBreak />
+              <Run FontStyle="Italic">
+                    Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
+              </Run>
+                        </TextBlock>
                 </StackPanel>
             </TabItem>
+            <!--#endregion-->
+            
         </TabControl>
 
       </Grid>

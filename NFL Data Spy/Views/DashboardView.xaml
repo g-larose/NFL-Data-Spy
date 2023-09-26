@@ -7,14 +7,13 @@
     xmlns:local="clr-namespace:NFL_Data_Spy.Views"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:vm="clr-namespace:NFL_Data_Spy.ViewModels"
     xmlns:v="clr-namespace:NFL_Data_Spy.Views"
+    xmlns:vm="clr-namespace:NFL_Data_Spy.ViewModels"
     Width="1000"
+    Height="Auto"
     mc:Ignorable="d">
     <Grid>
-        <Grid.ColumnDefinitions>
-            
-        </Grid.ColumnDefinitions>
+        <Grid.ColumnDefinitions />
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
