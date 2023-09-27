@@ -41,7 +41,7 @@
                     Grid.Column="0"
                     Grid.ColumnSpan="3"
                     CornerRadius="6 6 0 0"
-                    Background="{StaticResource GreenToLiteGreenGradientBrush}">
+                    Background="{StaticResource PrimaryToSecondaryGradientBrush}">
                  <TextBlock Grid.Row="0"
                             Grid.Column="0"
                             Grid.ColumnSpan="3"
@@ -50,7 +50,7 @@
                             VerticalAlignment="Top"
                             FontSize="14"
                             FontWeight="Bold"
-                            Foreground="{StaticResource Primary200ColorBrush}"
+                            Foreground="{StaticResource GreenToLiteGreenGradientBrush}"
                             Text="{Binding GameDate}" />
             </Border>
            

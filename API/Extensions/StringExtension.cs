@@ -87,7 +87,7 @@ namespace API.Extensions
                 "Cowboys"    => "dallas-cowboys",
                 "Broncos"    => "denver-broncos",
                 "Lions"      => "detroit-lions",
-                "Packers"    => "greenbay-packers",
+                "Packers"    => "green-bay-packers",
                 "Texans"     => "houston-texans",
                 "Colts"      => "indianapolis-colts",
                 "Jaguars"    => "jacksonville-jaguars",
