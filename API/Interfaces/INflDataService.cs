@@ -1,13 +1,13 @@
-﻿using System;
+﻿using API.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace API.Interfaces
-{
-    public interface INflDataService
-    {
+namespace API.Interfaces;
 
-    }
+public interface INflDataService
+{
+    Task<List<Player>> GetCurrentLeadingPlayers();
 }
