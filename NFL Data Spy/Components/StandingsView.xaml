@@ -25,7 +25,7 @@
 
         <materialDesign:Chip
             Grid.Column="0"
-            Margin="36,0"
+            Margin="28,0"
             Content="2023 NFL Standings AFC" />
 
 
@@ -34,7 +34,7 @@
             Grid.Column="0"
             Width="460"
             Height="Auto"
-            Margin="10,20"
+            Margin="10"
             VerticalAlignment="Top"
             Background="Transparent">
             <StackPanel Height="600">
@@ -81,34 +81,71 @@
                                     <TextBlock Margin="4,0,10,10" Text="Ties" />
                                 </StackPanel>
                             </Grid>
-                            <TextBlock
+                            <StackPanel
                                 Grid.Row="1"
                                 Grid.Column="0"
-                                Margin="2"
-                                FontSize="14"
-                                Foreground="LightGreen"
-                                Text="{Binding Standings[0].Teamname}" />
-                            <TextBlock
+                                Orientation="Horizontal">
+                                <TextBlock
+                                    Margin="2,4"
+                                    FontSize="8"
+                                    Foreground="{StaticResource Primary700ColorBrush}"
+                                    Text="1: " />
+                                <TextBlock
+                                    FontSize="14"
+                                    Foreground="LightGreen"
+                                    Text="{Binding Standings[0].Teamname}" />
+                            </StackPanel>
+
+                            <StackPanel
                                 Grid.Row="2"
                                 Grid.Column="0"
-                                Margin="2"
-                                FontSize="14"
-                                Foreground="LightGreen"
-                                Text="{Binding Standings[1].Teamname}" />
-                            <TextBlock
+                                Orientation="Horizontal">
+                                <TextBlock
+                                    Margin="2,6"
+                                    FontSize="8"
+                                    Foreground="{StaticResource Primary700ColorBrush}"
+                                    Text="2: " />
+                                <TextBlock
+                                    Margin="2"
+                                    FontSize="14"
+                                    Foreground="LightGreen"
+                                    Text="{Binding Standings[1].Teamname}" />
+                            </StackPanel>
+                            <StackPanel
                                 Grid.Row="3"
                                 Grid.Column="0"
-                                Margin="2"
-                                FontSize="14"
-                                Foreground="LightGreen"
-                                Text="{Binding Standings[2].Teamname}" />
-                            <TextBlock
+                                Orientation="Horizontal">
+                                <TextBlock
+                                    Margin="2,6"
+                                    FontSize="8"
+                                    Foreground="{StaticResource Primary700ColorBrush}"
+                                    Text="3: " />
+                                <TextBlock
+                                    Grid.Row="3"
+                                    Grid.Column="0"
+                                    Margin="2"
+                                    FontSize="14"
+                                    Foreground="LightGreen"
+                                    Text="{Binding Standings[2].Teamname}" />
+                            </StackPanel>
+                            <StackPanel
                                 Grid.Row="4"
                                 Grid.Column="0"
-                                Margin="2"
-                                FontSize="14"
-                                Foreground="LightGreen"
-                                Text="{Binding Standings[3].Teamname}" />
+                                Orientation="Horizontal">
+                                <TextBlock
+                                    Margin="2,7"
+                                    FontSize="8"
+                                    Foreground="{StaticResource Primary700ColorBrush}"
+                                    Text="4: " />
+                                <TextBlock
+                                    Grid.Row="4"
+                                    Grid.Column="0"
+                                    Margin="2"
+                                    FontSize="14"
+                                    Foreground="LightGreen"
+                                    Text="{Binding Standings[3].Teamname}" />
+                            </StackPanel>
+
                             <StackPanel
                                 Grid.Row="1"
                                 Grid.Column="1"

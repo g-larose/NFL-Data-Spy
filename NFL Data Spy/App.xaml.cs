@@ -34,6 +34,7 @@ namespace NFL_Data_Spy
                     services.AddSingleton<IDataService, DataService>();
                     services.AddSingleton<IMessenger, WeakReferenceMessenger>(provider =>
                          provider.GetRequiredService<WeakReferenceMessenger>());
+                    services.AddSingleton<IHtmlDocument, HtmlDocumentService>();
 
                     
                 }).Build();
