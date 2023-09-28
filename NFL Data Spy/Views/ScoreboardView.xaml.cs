@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace NFL_Data_Spy.Components
+namespace NFL_Data_Spy.Views
 {
     /// <summary>
     /// Interaction logic for ScoreboardView.xaml

@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="NFL_Data_Spy.Views.ScoreboardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:components="clr-namespace:NFL_Data_Spy.Components"
+             xmlns:vm="clr-namespace:NFL_Data_Spy.ViewModels"
+             xmlns:local="clr-namespace:NFL_Data_Spy.Views"
+             mc:Ignorable="d" 
+             Height="450" Width="800">
+    <UserControl.DataContext>
+        <vm:ScoreboardViewViewModel />
+    </UserControl.DataContext>
+    <Grid>
+        <ItemsControl ItemsSource="{Binding Scores}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <components:SingleScoreboardView />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate> 
+ </ItemsControl>  
+    </Grid>
+</UserControl>

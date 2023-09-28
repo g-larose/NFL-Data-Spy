@@ -31,7 +31,7 @@ public partial class DashboardViewModel : ObservableObject
     {
         Task.Run(async () =>
         {
-           _standings = await _matchupService.GetCurrentStandingAsync();
+           Standings = await _matchupService.GetCurrentStandingAsync();
         });
     }
 }
