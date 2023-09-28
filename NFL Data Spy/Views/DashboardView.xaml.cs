@@ -1,4 +1,5 @@
 ﻿using API.Data;
+using API.Data.Factories;
 using API.Interfaces;
 using API.Services;
 using Microsoft.EntityFrameworkCore;
@@ -9,11 +10,10 @@ namespace NFL_Data_Spy.Views;
 
 public partial class DashboardView : UserControl
 {
-    MatchupDataService _matchupService = new MatchupDataService();
 
     public DashboardView()
     {
         InitializeComponent();
-        DataContext = new DashboardViewModel();
+       
     }
 }

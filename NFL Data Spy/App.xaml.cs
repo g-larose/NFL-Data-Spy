@@ -1,4 +1,5 @@
 ﻿using API.Data;
+using API.Data.Factories;
 using API.Extensions;
 using API.Interfaces;
 using API.Services;
@@ -31,6 +32,7 @@ namespace NFL_Data_Spy
                     {
                         DataContext = s.GetRequiredService<AppViewModel>()
                     });
+                    services.AddSingleton<AppDbContextFactory>();
                     services.AddDbContextFactory<AppDbContext>();
                     services.AddSingleton<IDataService, DataService>();
                     services.AddSingleton<IMessenger, WeakReferenceMessenger>(provider =>
