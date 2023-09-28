@@ -1,4 +1,5 @@
 ﻿using API.Data;
+using API.Interfaces;
 using API.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
@@ -14,16 +15,17 @@ namespace NFL_Data_Spy.ViewModels
     public partial class AppViewModel : ObservableObject
     {
         private readonly IDbContextFactory<AppDbContext>? _dbContext;
-        private MatchupDataService _matchupService = new();
+        private readonly IMatchupService _matchupService;
 
         [RelayCommand]
         private async Task GetSeasonSchedule()
         {
             await _matchupService.GetSeasonSchedule(2023, "dallas-cowboys");
         }
-        public AppViewModel(IDbContextFactory<AppDbContext>? dbContext)
+        public AppViewModel(IDbContextFactory<AppDbContext>? dbContext, IMatchupService matchupService)
         {
             _dbContext = dbContext;
+            _matchupService = matchupService;
         }
     }
 }

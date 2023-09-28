@@ -8,7 +8,6 @@
         xmlns:v="clr-namespace:NFL_Data_Spy.Views"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        d:DataContext="{d:DesignInstance Type=vm:AppViewModel, IsDesignTimeCreatable=False}"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         AllowsTransparency="True"
@@ -104,8 +103,8 @@
                     <TabItem.Content>
                         <StackPanel Height="Auto">
                             <v:DashboardView Margin="10 10" 
-                                         VerticalAlignment="Top"
-                                         Height="Auto"/>
+                                             VerticalAlignment="Top"
+                                             Height="Auto" />
                         </StackPanel>
                         
                     </TabItem.Content>

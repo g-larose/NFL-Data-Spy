@@ -8,7 +8,7 @@ namespace NFL_Data_Spy.ViewModels;
 public partial class ScheduleViewViewModel : ObservableObject
 {
     private DataService _dataService = new();
-    private MatchupDataService _matchupService = new();
+    private MatchupDataService _matchupService;
 
     [ObservableProperty]
     private List<Matchup>? _matchups = new();
@@ -31,6 +31,7 @@ public partial class ScheduleViewViewModel : ObservableObject
 
     public ScheduleViewViewModel()
     {
+        _matchupService = new MatchupDataService();
         LoadSeasons();
         TeamNames = _dataService.LoadTeamNames();
     }

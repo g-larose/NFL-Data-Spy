@@ -18,7 +18,7 @@ namespace API.Services
         {
             System.Reflection.MemberInfo[] memInfo = value.GetType().GetMember(value.ToString());
             DescriptionAttribute attribute = CustomAttributeExtensions.GetCustomAttribute<DescriptionAttribute>(memInfo[0]);
-            return attribute.Description;
+            return attribute!.Description;
         }
 
         public List<string> LoadTeamNames()
@@ -28,6 +28,14 @@ namespace API.Services
 
             return names!;
 
+        }
+
+        public string GetConnectionString()
+        {
+            var jsonFile = File.ReadAllText("appsettings.json");
+            var json = JsonSerializer.Deserialize<SettingsJson>(jsonFile);
+
+            return json!.ConnectionString;
         }
     }
 }

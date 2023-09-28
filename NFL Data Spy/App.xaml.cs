@@ -3,6 +3,7 @@ using API.Extensions;
 using API.Interfaces;
 using API.Services;
 using CommunityToolkit.Mvvm.Messaging;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -35,6 +36,7 @@ namespace NFL_Data_Spy
                     services.AddSingleton<IMessenger, WeakReferenceMessenger>(provider =>
                          provider.GetRequiredService<WeakReferenceMessenger>());
                     services.AddSingleton<IHtmlDocument, HtmlDocumentService>();
+                    services.AddSingleton<IMatchupService, MatchupDataService>();
 
                     
                 }).Build();

@@ -1,7 +1,9 @@
-﻿using API.Extensions;
+﻿using API.Data;
+using API.Extensions;
 using API.Interfaces;
 using API.Models;
 using HtmlAgilityPack;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +19,19 @@ namespace API.Services
         HtmlDocumentService _docService = new();
         IDataService _dataService = new DataService();
 
+
+        public MatchupDataService()
+        {
+
+        }
+
+
+
+        /// <summary>
+        /// Get Current Standings
+        /// </summary>
+        /// <returns>List</returns>
+        #region GET CURRENT STANDINGS
         public async Task<List<TeamStanding>> GetCurrentStandingAsync()
         {
             var link = "https://www.footballdb.com/standings/index.html";
@@ -53,6 +68,7 @@ namespace API.Services
             }
             return standings;
         }
+        #endregion
 
         /// <summary>
         /// GET SEASON SCHEDULE
@@ -134,6 +150,17 @@ namespace API.Services
                 }
                
             }
+
+            return matchups;
+        }
+
+        #endregion
+
+        #region GET WEEKLY MATCHUPS
+
+        public async Task<List<Matchup>> GetWeeklyMatchups(int year, int week)
+        {
+            List<Matchup> matchups = new();
 
             return matchups;
         }
