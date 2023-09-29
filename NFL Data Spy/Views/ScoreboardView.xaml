@@ -12,7 +12,8 @@
         <vm:ScoreboardViewViewModel />
     </UserControl.DataContext>
     <Grid>
-        <ItemsControl ItemsSource="{Binding Scores}">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+          <ItemsControl ItemsSource="{Binding Scores}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel />
@@ -23,6 +24,8 @@
                     <components:SingleScoreboardView />
                 </DataTemplate>
             </ItemsControl.ItemTemplate> 
- </ItemsControl>  
+          </ItemsControl> 
+        </ScrollViewer>
+         
     </Grid>
 </UserControl>

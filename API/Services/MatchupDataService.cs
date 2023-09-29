@@ -25,8 +25,6 @@ public class MatchupDataService : IMatchupService
 
     }
 
-
-
     /// <summary>
     /// Get Current Standings
     /// </summary>
@@ -176,13 +174,24 @@ public class MatchupDataService : IMatchupService
                 awayName = row.ChildNodes[1].InnerText.Replace("\n", string.Empty).Replace("--", string.Empty).Trim();
                 homeName = row.ChildNodes[3].InnerText.Replace("\n", string.Empty).Replace("--", string.Empty).Trim();
 
-                var awayTeam = new Team() { Name = awayName };
-                var homeTeam = new Team() { Name = homeName };
+                var awayScore = int.TryParse(row.ChildNodes[1].ChildNodes[7].InnerText, out int awayScoreFinal);
+                var homeScore = int.TryParse(row.ChildNodes[3].ChildNodes[7].InnerText, out int homeScoreFinal);
 
-                var matchup = new Matchup() { AwayTeam = awayTeam, HomeTeam = homeTeam };
-                matchups.Add(matchup);
-            }
-            
+                if (awayScoreFinal > homeScoreFinal)
+                {
+                    var awayTeam = new Team() { Name = awayName, IsWinner = true };
+                    var homeTeam = new Team() { Name = homeName, IsWinner = false };
+                    var matchup = new Matchup() { AwayTeam = awayTeam, HomeTeam = homeTeam };
+                    matchups.Add(matchup);
+                }
+                else
+                {
+                    var awayTeam = new Team() { Name = awayName, IsWinner = false };
+                    var homeTeam = new Team() { Name = homeName, IsWinner = true };
+                    var matchup = new Matchup() { AwayTeam = awayTeam, HomeTeam = homeTeam };
+                    matchups.Add(matchup);
+                }           
+            }  
         }
 
         return matchups;

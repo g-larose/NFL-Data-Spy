@@ -21,14 +21,14 @@ namespace NFL_Data_Spy.ViewModels
         List<Matchup>? _scores;
         public ScoreboardViewViewModel()
         {
-            Scores = _matchupService.GetWeeklyScoreboard(2023, 4);
+            Scores = _matchupService.GetWeeklyScoreboard(2023, 1);
         }
 
         private void LoadScoreboard()
         {
             using var dbFactory = new AppDbContextFactory();
             var db = dbFactory.CreateDbContext();
-            Scores = _matchupService.GetWeeklyScoreboard(2023, 4);
+            Scores = _matchupService.GetWeeklyScoreboard(2023, 1);
         }
     }
 }
