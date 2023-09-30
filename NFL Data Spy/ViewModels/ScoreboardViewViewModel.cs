@@ -28,7 +28,7 @@ namespace NFL_Data_Spy.ViewModels
         {
             //using var dbFactory = new AppDbContextFactory();
             // var db = dbFactory.CreateDbContext();
-            Scores = _matchupService.GetWeeklyScoreboard(2023, 4);
+            Scores = _matchupService.GetWeeklyScoreboard(2023, 3);
         }
     }
 }

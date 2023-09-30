@@ -157,7 +157,7 @@ public class MatchupDataService : IMatchupService
 
     #region GET WEEKLY SCOREBOARD
 
-    public List<Matchup> GetWeeklyScoreboard(int year, int week)
+    public List<Matchup> GetWeeklyScoreboard(int year, int week = 0)
     {
         List<Matchup> matchups = new();
         var link = "";
@@ -197,27 +197,35 @@ public class MatchupDataService : IMatchupService
                 var awayScoreFinal = 0;
                 var homeScoreFinal = 0;
 
+
+                //this is fucking ugly but it is the best option at my skill level.
                 if (row.ChildNodes[1].ChildNodes.Count() > 4)
                 {
                     var awayScore = int.TryParse(row.ChildNodes[1].ChildNodes[7].InnerText, out awayScoreFinal);
                     var homeScore = int.TryParse(row.ChildNodes[3].ChildNodes[7].InnerText, out homeScoreFinal);
-                }
-                    
+                }  
 
                 if (awayScoreFinal > homeScoreFinal)
                 {
-                    var awayTeam = new Team() { Name = awayNameFinal, Record = awayRecord, IsWinner = true };
-                    var homeTeam = new Team() { Name = homeNameFinal, Record = homeRecord, IsWinner = false };
+                    var awayTeam = new Team() { Name = awayNameFinal, Record = awayRecord, Score = awayScoreFinal.ToString(), IsWinner = true };
+                    var homeTeam = new Team() { Name = homeNameFinal, Record = homeRecord, Score = homeScoreFinal.ToString(), IsWinner = false };
+                    var matchup = new Matchup() { AwayTeam = awayTeam, HomeTeam = homeTeam, GameDate = gameDate };
+                    matchups.Add(matchup);
+                }
+                else if (awayScoreFinal < homeScoreFinal)
+                {
+                    var awayTeam = new Team() { Name = awayNameFinal, Record = awayRecord, Score = awayScoreFinal.ToString(), IsWinner = false };
+                    var homeTeam = new Team() { Name = homeNameFinal, Record = homeRecord, Score = homeScoreFinal.ToString(), IsWinner = true };
                     var matchup = new Matchup() { AwayTeam = awayTeam, HomeTeam = homeTeam, GameDate = gameDate };
                     matchups.Add(matchup);
                 }
                 else
                 {
-                    var awayTeam = new Team() { Name = awayNameFinal, Record = awayRecord, IsWinner = false };
-                    var homeTeam = new Team() { Name = homeNameFinal, Record = homeRecord, IsWinner = true };
+                    var awayTeam = new Team() { Name = awayNameFinal, Record = awayRecord, Score = awayScoreFinal.ToString(), IsWinner = false };
+                    var homeTeam = new Team() { Name = homeNameFinal, Record = homeRecord, Score = homeScoreFinal.ToString(), IsWinner = false };
                     var matchup = new Matchup() { AwayTeam = awayTeam, HomeTeam = homeTeam, GameDate = gameDate };
                     matchups.Add(matchup);
-                }         
+                }
             }  
         }
 

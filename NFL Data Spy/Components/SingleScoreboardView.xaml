@@ -4,11 +4,15 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:NFL_Data_Spy.Components"
+    xmlns:converters="clr-namespace:NFL_Data_Spy.Converters"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
     Width="200"
     Height="110"
     mc:Ignorable="d">
+    <UserControl.Resources>
+        <converters:BoolToColorBrushConverter x:Key="boolToColorConverter" />
+    </UserControl.Resources>
     <Grid>
         <md:Card
             Width="180"
@@ -59,56 +63,81 @@
                 </Border>
                 <!--#endregion-->
 
-                <StackPanel Grid.Row="1" Orientation="Horizontal"
-                            Margin="10 0">
-                    <TextBlock
-                        Grid.Row="1"
-                        VerticalAlignment="Center"
-                        FontSize="12"
-                        FontWeight="Bold"
-                        Foreground="WhiteSmoke"
-                        Text="{Binding AwayTeam.Name, FallbackValue=Steelers}" />
-                    <TextBlock
-                        Grid.Row="1"
-                        Margin="2,4,0,0"
-                        VerticalAlignment="Center"
-                        FontSize="9"
-                        FontWeight="Light"
-                        Foreground="{StaticResource Primary700ColorBrush}"
-                        Text="{Binding AwayTeam.Record, FallbackValue=(2-1)}" />
-                </StackPanel>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                     <TextBlock Grid.Column="0"
+                                VerticalAlignment="Center"
+                                Margin="6 0 0 0"
+                                Width="Auto"
+                                FontSize="12"
+                                FontWeight="Bold"
+                                Foreground="WhiteSmoke"
+                                Text="{Binding AwayTeam.Name, FallbackValue=Steelers}" />
+                     <TextBlock Grid.Column="1"
+                                Margin="2,4,0,0"
+                                VerticalAlignment="Center"
+                                FontSize="9"
+                                FontWeight="Light"
+                                Foreground="{StaticResource Primary700ColorBrush}"
+                                Text="{Binding AwayTeam.Record, FallbackValue=(2-1)}" />
+                     <TextBlock Grid.Column="2"
+                                HorizontalAlignment="Right"
+                                Width="Auto"
+                                VerticalAlignment="Center"
+                                Margin="0 0 10 0"
+                                FontSize="12"
+                                Foreground="{Binding AwayTeam.IsWinner, Converter={StaticResource boolToColorConverter}}"
+                                FontWeight="Bold"
+                                Text="{Binding AwayTeam.Score}" />
+                </Grid>
 
-                <StackPanel Grid.Row="2" Orientation="Horizontal"
-                            Margin="10 0">
-                    <TextBlock
-                        Grid.Row="1"
-                        VerticalAlignment="Center"
-                        FontSize="12"
-                        FontWeight="Bold"
-                        Foreground="WhiteSmoke"
-                        Text="{Binding HomeTeam.Name, FallbackValue=Bills}" />
-                    <TextBlock
-                        Grid.Row="1"
-                        Margin="2,2,0,0"
-                        VerticalAlignment="Center"
-                        FontSize="9"
-                        FontWeight="Light"
-                        Foreground="{StaticResource Primary700ColorBrush}"
-                        Text="{Binding Home.Record, FallbackValue=(0-2)}" />
-                </StackPanel>
 
-                <StackPanel
-                    Grid.Row="3"
-                    Height="14"
-                    Margin="0,-2,0,0"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Orientation="Horizontal">
-                    <TextBlock
-                        Margin="2,2,0,0"
-                        FontSize="10"
-                        Foreground="{StaticResource Primary500ColorBrush}"
-                        Text="Last Meeting Data Here" />
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0"
+                               Margin="6 0 0 0"
+                               VerticalAlignment="Center"
+                               Width="Auto"
+                               FontSize="12"
+                               FontWeight="Bold"
+                               Foreground="WhiteSmoke"
+                               Text="{Binding HomeTeam.Name, FallbackValue=Bills}" />
+                    <TextBlock Grid.Column="1"
+                               Margin="2,2,0,0"
+                               VerticalAlignment="Center"
+                               FontSize="9"
+                               FontWeight="Light"
+                               Foreground="{StaticResource Primary700ColorBrush}"
+                               Text="{Binding Home.Record, FallbackValue=(0-2)}" />
+                    <TextBlock Grid.Column="2"
+                               HorizontalAlignment="Right"
+                               VerticalAlignment="Center"
+                               Width="Auto"
+                               Margin="0 0 10 0"
+                               FontSize="12"
+                               Foreground="{Binding HomeTeam.IsWinner, Converter={StaticResource boolToColorConverter}}"
+                               FontWeight="Bold"
+                               Text="{Binding HomeTeam.Score}" />
+                </Grid>
+
+                <StackPanel Grid.Row="3"
+                            Height="14"
+                            Margin="0,-2,0,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                    <TextBlock Margin="2,2,0,0"
+                               FontSize="10"
+                               Foreground="{StaticResource Primary500ColorBrush}"
+                               Text="Last Meeting Data Here" />
                 </StackPanel>
 
             </Grid>
