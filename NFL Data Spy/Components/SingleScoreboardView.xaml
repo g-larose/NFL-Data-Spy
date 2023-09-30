@@ -116,7 +116,7 @@
                                FontSize="9"
                                FontWeight="Light"
                                Foreground="{StaticResource Primary700ColorBrush}"
-                               Text="{Binding Home.Record, FallbackValue=(0-2)}" />
+                               Text="{Binding HomeTeam.Record, FallbackValue=(0-2)}" />
                     <TextBlock Grid.Column="2"
                                HorizontalAlignment="Right"
                                VerticalAlignment="Center"

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:components="clr-namespace:NFL_Data_Spy.Components"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:vm="clr-namespace:NFL_Data_Spy.ViewModels"
              xmlns:local="clr-namespace:NFL_Data_Spy.Views"
              mc:Ignorable="d" 
@@ -14,9 +15,36 @@
             <RowDefinition Height="50" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        
+        <StackPanel Grid.Row="0"
+                    Margin="20 4 0 4"
+                    HorizontalAlignment="Left"
+                    Orientation="Horizontal">
+            <ComboBox Width="70"
+                      Height="30"
+                      materialDesign:HintAssist.Hint="Season"
+                      Foreground="{StaticResource AccentColorBrush}"
+                      ItemsSource="{Binding Seasons}"
+                      SelectedValue="{Binding Season, UpdateSourceTrigger=PropertyChanged}" />
+            <ComboBox Width="70"
+                      Height="30"
+                      Margin="10 0"
+                      materialDesign:HintAssist.Hint="Week"
+                      Foreground="{StaticResource AccentColorBrush}"
+                      ItemsSource="{Binding Weeks}"
+                      SelectedValue="{Binding Week, UpdateSourceTrigger=PropertyChanged}" />
+
+            <Button Command="{Binding SearchCommand}"
+                    Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
+                    ToolTip="Search For Specific Season and Week Scoreboard."
+                    Margin="10 0 10 0">
+                <materialDesign:PackIcon Width="20"
+                                         Height="20"
+                                         Kind="Search" />
+            </Button>
+        </StackPanel>
         <ScrollViewer Grid.Row="1"
-                      VerticalScrollBarVisibility="Auto">
+                      VerticalScrollBarVisibility="Auto"
+                      Margin="0 20 0 0">
           <ItemsControl ItemsSource="{Binding Scores}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>

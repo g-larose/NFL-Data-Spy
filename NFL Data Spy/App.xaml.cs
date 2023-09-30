@@ -18,12 +18,15 @@ namespace NFL_Data_Spy
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App : Application, IDisposable
     {
         private IHost _host;
+        private INetworkConnection netConnection = new NetworkConnectionService();
         //static IConfiguration? configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
         public App()
         {
+            if (netConnection.IsConnected().Equals(false))
+                this.Dispose();
             _host = new HostBuilder()
                 .ConfigureServices((context, services) =>
                 {
@@ -43,6 +46,11 @@ namespace NFL_Data_Spy
                     
                 }).Build();
            
+        }
+
+        public void Dispose()
+        {
+            Application.Current.Shutdown();
         }
 
         protected override void OnExit(ExitEventArgs e)

@@ -168,12 +168,15 @@ public class MatchupDataService : IMatchupService
             link = $"https://www.footballdb.com/scores/index.html?lg=NFL&yr={year}&type=reg&wk={week}";
 
         var doc = _docService.GetDocument(link);
-        var scoreNodes = _docService.GetNodes(doc, ".//div[@class='lngame']//table");
+        var scoreNodes = _docService.GetNodes(doc, ".//div[@class='lngame']//table") ?? null;
 
         var awayName = "";
         var homeName = "";
         var gameDate = "";
-        foreach (var node in scoreNodes)
+
+        if (scoreNodes is not null)
+        {
+            foreach (var node in scoreNodes)
         {
             var row = node.ChildNodes[3];
             gameDate = node.ChildNodes[1].ChildNodes[1].ChildNodes[1].InnerText;
@@ -197,8 +200,7 @@ public class MatchupDataService : IMatchupService
                 var awayScoreFinal = 0;
                 var homeScoreFinal = 0;
 
-
-                //this is fucking ugly but it is the best option at my skill level.
+                //TODO: this is fucking ugly but it is the best option at my skill level. FIX
                 if (row.ChildNodes[1].ChildNodes.Count() > 4)
                 {
                     var awayScore = int.TryParse(row.ChildNodes[1].ChildNodes[7].InnerText, out awayScoreFinal);
@@ -228,6 +230,8 @@ public class MatchupDataService : IMatchupService
                 }
             }  
         }
+        }
+        
 
         return matchups;
     }

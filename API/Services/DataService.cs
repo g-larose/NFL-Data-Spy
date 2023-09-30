@@ -37,5 +37,15 @@ namespace API.Services
 
             return json!.ConnectionString;
         }
+
+        public List<int> LoadSeasons()
+        {
+            return Enumerable.Range(1970, 54).Reverse().ToList();
+        }
+
+        public List<int> LoadWeeks()
+        {
+            return Enumerable.Range(1, 17).ToList();
+        }
     }
 }
