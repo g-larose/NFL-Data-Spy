@@ -14,7 +14,7 @@ namespace NFL_Data_Spy.ViewModels;
 
 public partial class DashboardViewModel : ObservableObject
 {
-    private AppDbContextFactory _dbContext;
+    private IDbContextFactory<AppDbContext> _dbContext;
     private IMatchupService _matchupService;
 
     [ObservableProperty]
@@ -31,7 +31,7 @@ public partial class DashboardViewModel : ObservableObject
     {
         Task.Run(async () =>
         {
-           _standings = await _matchupService.GetCurrentStandingAsync();
+           Standings = await _matchupService.GetCurrentStandingAsync();
         });
     }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace API.Data.Factories
 {
-    public class AppDbContextFactory : IDbContextFactory<AppDbContext>
+    public class AppDbContextFactory : IDbContextFactory<AppDbContext>, IDisposable
     {
         private DataService _dataService = new DataService();
 
@@ -20,6 +20,11 @@ namespace API.Data.Factories
             options.UseNpgsql(conStr);
 
             return new AppDbContext(options.Options);
+        }
+
+        public void Dispose()
+        {
+            this.Dispose();
         }
     }
 }

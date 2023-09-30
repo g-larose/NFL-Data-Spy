@@ -15,6 +15,7 @@ namespace API.Models
         public string Record { get; set; }   = string.Empty;
         public string LogoUri { get; set; }  = string.Empty;
         public string Division { get; set; } = string.Empty;
+        public bool IsWinner { get; set; }
         public List<Player>? Players { get; set; }
     }
 }

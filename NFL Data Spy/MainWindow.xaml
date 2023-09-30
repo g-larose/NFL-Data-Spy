@@ -102,7 +102,7 @@
                 </TabItem.Header>
                     <TabItem.Content>
                         <StackPanel Height="Auto">
-                            <v:DashboardView Margin="10 10" 
+                            <v:DashboardView Margin="10" 
                                              VerticalAlignment="Top"
                                              Height="Auto" />
                         </StackPanel>
@@ -147,23 +147,11 @@
 
                     </StackPanel>
                 </TabItem.Header>
-                <StackPanel
-                       Margin="16">
-                    <TextBlock
-                           Margin="0,0,0,8"
-                           Style="{StaticResource MaterialDesignHeadline5TextBlock}"
-                           Text="Stats" />
-                    <TextBlock>
-          <Run
-            Text="tab 3 content. Default look and behaviors." />
-          <LineBreak />
-          <LineBreak />
-          <Run FontStyle="Italic">
-                 Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
-           </Run>
-                    </TextBlock>
-                </StackPanel>
-            </TabItem>
+                    <v:ScoreboardView Margin="20"
+                                      VerticalAlignment="Top"
+                                      HorizontalAlignment="Left"
+                                      Height="Auto" />
+                </TabItem>
             <!--#endregion-->
             
          <!--#region  SETTINGS-->

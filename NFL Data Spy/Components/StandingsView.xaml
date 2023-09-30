@@ -86,11 +86,12 @@
                                 Grid.Column="0"
                                 Orientation="Horizontal">
                                 <TextBlock
-                                    Margin="2,4"
+                                    Margin="2,6"
                                     FontSize="8"
                                     Foreground="{StaticResource Primary700ColorBrush}"
                                     Text="1: " />
                                 <TextBlock
+                                    Margin="2"
                                     FontSize="14"
                                     Foreground="LightGreen"
                                     Text="{Binding Standings[0].Teamname}" />

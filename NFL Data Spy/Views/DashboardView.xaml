@@ -12,6 +12,9 @@
     Width="1000"
     Height="Auto"
     mc:Ignorable="d">
+    <UserControl.DataContext>
+        <vm:DashboardViewModel />
+    </UserControl.DataContext>
     <Grid>
         <Grid.ColumnDefinitions />
         <Grid.RowDefinitions>

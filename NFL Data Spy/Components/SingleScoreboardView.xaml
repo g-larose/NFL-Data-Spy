@@ -1,109 +1,118 @@
-﻿<UserControl x:Class="NFL_Data_Spy.Components.SingleScoreboardView"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:local="clr-namespace:NFL_Data_Spy.Components"
-             mc:Ignorable="d" 
-             Height="110" Width="200">
+﻿<UserControl
+    x:Class="NFL_Data_Spy.Components.SingleScoreboardView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:NFL_Data_Spy.Components"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+    Width="200"
+    Height="110"
+    mc:Ignorable="d">
     <Grid>
-        <md:Card Width="180"
-                 Height="100"
-                 Background="{StaticResource PrimaryToSecondaryGradientBrush}"
-                 UniformCornerRadius="12" >
+        <md:Card
+            Width="180"
+            Height="100"
+            Background="{StaticResource PrimaryToSecondaryGradientBrush}"
+            UniformCornerRadius="12">
             <Grid>
-                <Grid.ColumnDefinitions>
-                    
-                </Grid.ColumnDefinitions>
+
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="28"/>
+                    <RowDefinition Height="28" />
                     <RowDefinition />
                     <RowDefinition />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                
+
                 <!--#region  Header-->
-                <Border Grid.Row="0"
-                        Grid.Column="0"
-                        CornerRadius="8 8 0 0"
-                        Background="{StaticResource AccentToAccent500GradientBrush}"
-                        BorderBrush="{StaticResource Primary200ColorBrush}"
-                        BorderThickness=".5">
+                <Border
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Background="{StaticResource AccentToAccent500GradientBrush}"
+                    BorderBrush="{StaticResource Primary200ColorBrush}"
+                    BorderThickness=".5"
+                    CornerRadius="8 8 0 0">
                     <Border.Effect>
-                        <DropShadowEffect BlurRadius="4"
-                                          ShadowDepth="4"
-                                          Direction="270"
-                                          Color="Black"
-                                          Opacity=".5" />
+                        <DropShadowEffect
+                            BlurRadius="4"
+                            Direction="270"
+                            Opacity=".5"
+                            ShadowDepth="4"
+                            Color="Black" />
                     </Border.Effect>
-                    <TextBlock Text="{Binding GameDate, FallbackValue=Sep 9th 2023}"
-                               Foreground="WhiteSmoke"
-                               FontSize="12"
-                               FontWeight="Bold" 
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Center">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        FontSize="12"
+                        FontWeight="Bold"
+                        Foreground="{StaticResource Primary400ColorBrush}"
+                        Text="{Binding GameDate, FallbackValue=Sep 9th 2023}">
                         <TextBlock.Effect>
-                            <DropShadowEffect BlurRadius="2"
-                                              ShadowDepth="2"
-                                              Direction="270"
-                                              Color="Black"
-                                              Opacity=".5" />
+                            <DropShadowEffect
+                                BlurRadius="4"
+                                Direction="270"
+                                Opacity=".5"
+                                ShadowDepth="1"
+                                Color="Black" />
                         </TextBlock.Effect>
                     </TextBlock>
                 </Border>
                 <!--#endregion-->
 
-                <StackPanel Grid.Row="1"
-                            Orientation="Horizontal">
-                    <TextBlock Grid.Row="1"
-                               Text="{Binding Matchup.AwayTeam.Name, FallbackValue=Steelers}"
-                               Foreground="WhiteSmoke"
-                               FontSize="12"
-                               FontWeight="Light" 
-                               VerticalAlignment="Center"
-                               Margin="10 0 0 0"/>
-                     <TextBlock Grid.Row="1"
-                                Text="{Binding Matchup.AwayTeam.Record, FallbackValue=(2-1)}"
-                                Foreground="{StaticResource Primary700ColorBrush}"
-                                FontSize="9"
-                                FontWeight="Light" 
-                                VerticalAlignment="Center"
-                                Margin="2 4 0 0"/>
+                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                    <TextBlock
+                        Grid.Row="1"
+                        Margin="10,0,0,0"
+                        VerticalAlignment="Center"
+                        FontSize="12"
+                        FontWeight="Bold"
+                        Foreground="WhiteSmoke"
+                        Text="{Binding AwayTeam.Name, FallbackValue=Steelers}" />
+                    <TextBlock
+                        Grid.Row="1"
+                        Margin="2,4,0,0"
+                        VerticalAlignment="Center"
+                        FontSize="9"
+                        FontWeight="Light"
+                        Foreground="{StaticResource Primary700ColorBrush}"
+                        Text="{Binding AwayTeam.Record, FallbackValue=(2-1)}" />
                 </StackPanel>
-                
-                 <StackPanel Grid.Row="2"
-                             Orientation="Horizontal">
-                    <TextBlock Grid.Row="1"
-                               Text="{Binding Matchup.AwayTeam.Name, FallbackValue=Bills}"
-                               Foreground="WhiteSmoke"
-                               FontSize="12"
-                               FontWeight="Light" 
-                               VerticalAlignment="Center"
-                               Margin="10 0 0 0"/>
-                    <TextBlock Grid.Row="1"
-                               Text="{Binding Matchup.AwayTeam.Record, FallbackValue=(0-2)}"
-                               Foreground="{StaticResource Primary700ColorBrush}"
-                               FontSize="9"
-                               FontWeight="Light" 
-                               VerticalAlignment="Center"
-                               Margin="2 2 0 0"/>
-                 </StackPanel>
 
-                <StackPanel Grid.Row="3"
-                            Orientation="Horizontal"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Height="14"
-                            Margin="0 -2 0 0">
-                    <TextBlock Text="Last Meeting Data Here"
-                               Foreground="{StaticResource Primary500ColorBrush}"
-                               FontSize="10"
-                               Margin="2 2 0 0" />
+                <StackPanel Grid.Row="2" Orientation="Horizontal">
+                    <TextBlock
+                        Grid.Row="1"
+                        Margin="10,0,0,0"
+                        VerticalAlignment="Center"
+                        FontSize="12"
+                        FontWeight="Bold"
+                        Foreground="WhiteSmoke"
+                        Text="{Binding HomeTeam.Name, FallbackValue=Bills}" />
+                    <TextBlock
+                        Grid.Row="1"
+                        Margin="2,2,0,0"
+                        VerticalAlignment="Center"
+                        FontSize="9"
+                        FontWeight="Light"
+                        Foreground="{StaticResource Primary700ColorBrush}"
+                        Text="{Binding Home.Record, FallbackValue=(0-2)}" />
                 </StackPanel>
-                
+
+                <StackPanel
+                    Grid.Row="3"
+                    Height="14"
+                    Margin="0,-2,0,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+                    <TextBlock
+                        Margin="2,2,0,0"
+                        FontSize="10"
+                        Foreground="{StaticResource Primary500ColorBrush}"
+                        Text="Last Meeting Data Here" />
+                </StackPanel>
+
             </Grid>
-            
+
         </md:Card>
     </Grid>
 </UserControl>
