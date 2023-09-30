@@ -49,10 +49,10 @@
                         Text="{Binding GameDate, FallbackValue=Sep 9th 2023}">
                         <TextBlock.Effect>
                             <DropShadowEffect
-                                BlurRadius="2"
+                                BlurRadius="4"
                                 Direction="270"
                                 Opacity=".5"
-                                ShadowDepth="2"
+                                ShadowDepth="1"
                                 Color="Black" />
                         </TextBlock.Effect>
                     </TextBlock>
@@ -65,9 +65,9 @@
                         Margin="10,0,0,0"
                         VerticalAlignment="Center"
                         FontSize="12"
-                        FontWeight="Light"
+                        FontWeight="Bold"
                         Foreground="WhiteSmoke"
-                        Text="{Binding Matchup.AwayTeam.Name, FallbackValue=Steelers}" />
+                        Text="{Binding AwayTeam.Name, FallbackValue=Steelers}" />
                     <TextBlock
                         Grid.Row="1"
                         Margin="2,4,0,0"
@@ -75,7 +75,7 @@
                         FontSize="9"
                         FontWeight="Light"
                         Foreground="{StaticResource Primary700ColorBrush}"
-                        Text="{Binding Matchup.AwayTeam.Record, FallbackValue=(2-1)}" />
+                        Text="{Binding AwayTeam.Record, FallbackValue=(2-1)}" />
                 </StackPanel>
 
                 <StackPanel Grid.Row="2" Orientation="Horizontal">
@@ -84,9 +84,9 @@
                         Margin="10,0,0,0"
                         VerticalAlignment="Center"
                         FontSize="12"
-                        FontWeight="Light"
+                        FontWeight="Bold"
                         Foreground="WhiteSmoke"
-                        Text="{Binding Matchup.AwayTeam.Name, FallbackValue=Bills}" />
+                        Text="{Binding HomeTeam.Name, FallbackValue=Bills}" />
                     <TextBlock
                         Grid.Row="1"
                         Margin="2,2,0,0"
@@ -94,7 +94,7 @@
                         FontSize="9"
                         FontWeight="Light"
                         Foreground="{StaticResource Primary700ColorBrush}"
-                        Text="{Binding Matchup.AwayTeam.Record, FallbackValue=(0-2)}" />
+                        Text="{Binding Home.Record, FallbackValue=(0-2)}" />
                 </StackPanel>
 
                 <StackPanel

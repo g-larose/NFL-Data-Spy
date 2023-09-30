@@ -165,30 +165,44 @@ public class MatchupDataService : IMatchupService
 
         var awayName = "";
         var homeName = "";
+        var gameDate = "";
         foreach (var node in scoreNodes)
         {
             var row = node.ChildNodes[3];
+            gameDate = node.ChildNodes[1].ChildNodes[1].ChildNodes[1].InnerText;
+
+            //TODO: try to find the last meeting of these two teams. HINT- it isnt in the scoreNodes look further up the tree.
+            //var lastMeeting = "";
+
+            //if (node.SelectSingleNode("//div[@class='sbgmlinx']/b").InnerText is not null)
+                //lastMeeting = node.SelectSingleNode("//div[@class='sbgmlinx']//b").InnerText;
 
             if (row.HasChildNodes)
             {
-                awayName = row.ChildNodes[1].InnerText.Replace("\n", string.Empty).Replace("--", string.Empty).Trim();
-                homeName = row.ChildNodes[3].InnerText.Replace("\n", string.Empty).Replace("--", string.Empty).Trim();
+                awayName = row.ChildNodes[1].ChildNodes[1].InnerText.Replace("\n", string.Empty).Replace("--", string.Empty).Trim();
+                homeName = row.ChildNodes[3].ChildNodes[1].InnerText.Replace("\n", string.Empty).Replace("--", string.Empty).Trim();
 
+                var awayNameFinal = GetTeamName(awayName);
+                var homeNameFinal = GetTeamName(homeName);
+
+                var awayRecord = GetTeamRecord(awayName);
+                var homeRecord = GetTeamRecord(homeName);
+                
                 var awayScore = int.TryParse(row.ChildNodes[1].ChildNodes[7].InnerText, out int awayScoreFinal);
                 var homeScore = int.TryParse(row.ChildNodes[3].ChildNodes[7].InnerText, out int homeScoreFinal);
 
                 if (awayScoreFinal > homeScoreFinal)
                 {
-                    var awayTeam = new Team() { Name = awayName, IsWinner = true };
-                    var homeTeam = new Team() { Name = homeName, IsWinner = false };
-                    var matchup = new Matchup() { AwayTeam = awayTeam, HomeTeam = homeTeam };
+                    var awayTeam = new Team() { Name = awayNameFinal, Record = awayRecord, IsWinner = true };
+                    var homeTeam = new Team() { Name = homeNameFinal, Record = homeRecord, IsWinner = false };
+                    var matchup = new Matchup() { AwayTeam = awayTeam, HomeTeam = homeTeam, GameDate = gameDate };
                     matchups.Add(matchup);
                 }
                 else
                 {
-                    var awayTeam = new Team() { Name = awayName, IsWinner = false };
-                    var homeTeam = new Team() { Name = homeName, IsWinner = true };
-                    var matchup = new Matchup() { AwayTeam = awayTeam, HomeTeam = homeTeam };
+                    var awayTeam = new Team() { Name = awayNameFinal, Record = awayRecord, IsWinner = false };
+                    var homeTeam = new Team() { Name = homeNameFinal, Record = homeRecord, IsWinner = true };
+                    var matchup = new Matchup() { AwayTeam = awayTeam, HomeTeam = homeTeam, GameDate = gameDate };
                     matchups.Add(matchup);
                 }           
             }  
@@ -202,5 +216,17 @@ public class MatchupDataService : IMatchupService
     public async Task<List<Team>> GetTeamData(string teamName)
     {
         throw new NotImplementedException();
+    }
+
+    private string GetTeamRecord(string args)
+    {
+        var startIndex = args.IndexOf("(");
+        return args.Substring(startIndex - 1);
+    }
+
+    private string GetTeamName(string args)
+    {
+        var startIndex = args.IndexOf("(");
+        return args.Substring(0, startIndex - 1);
     }
 }

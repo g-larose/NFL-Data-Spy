@@ -149,6 +149,7 @@
                 </TabItem.Header>
                     <v:ScoreboardView Margin="20"
                                       VerticalAlignment="Top"
+                                      HorizontalAlignment="Left"
                                       Height="Auto" />
                 </TabItem>
             <!--#endregion-->
