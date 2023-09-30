@@ -8,11 +8,15 @@
              xmlns:local="clr-namespace:NFL_Data_Spy.Views"
              mc:Ignorable="d" 
              Height="450" Width="800">
-    <UserControl.DataContext>
-        <vm:ScoreboardViewViewModel />
-    </UserControl.DataContext>
+
     <Grid>
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <ScrollViewer Grid.Row="1"
+                      VerticalScrollBarVisibility="Auto">
           <ItemsControl ItemsSource="{Binding Scores}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>

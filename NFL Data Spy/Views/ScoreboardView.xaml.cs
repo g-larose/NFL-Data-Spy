@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NFL_Data_Spy.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace NFL_Data_Spy.Views
         public ScoreboardView()
         {
             InitializeComponent();
+            DataContext = new ScoreboardViewViewModel();
         }
     }
 }

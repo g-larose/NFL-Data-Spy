@@ -19,9 +19,9 @@
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="28" />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="14"/>
                 </Grid.RowDefinitions>
 
                 <!--#region  Header-->
@@ -34,10 +34,10 @@
                     CornerRadius="8 8 0 0">
                     <Border.Effect>
                         <DropShadowEffect
-                            BlurRadius="4"
+                            BlurRadius="2"
                             Direction="270"
-                            Opacity=".5"
-                            ShadowDepth="4"
+                            Opacity=".4"
+                            ShadowDepth="2"
                             Color="Black" />
                     </Border.Effect>
                     <TextBlock
@@ -59,10 +59,10 @@
                 </Border>
                 <!--#endregion-->
 
-                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <StackPanel Grid.Row="1" Orientation="Horizontal"
+                            Margin="10 0">
                     <TextBlock
                         Grid.Row="1"
-                        Margin="10,0,0,0"
                         VerticalAlignment="Center"
                         FontSize="12"
                         FontWeight="Bold"
@@ -78,10 +78,10 @@
                         Text="{Binding AwayTeam.Record, FallbackValue=(2-1)}" />
                 </StackPanel>
 
-                <StackPanel Grid.Row="2" Orientation="Horizontal">
+                <StackPanel Grid.Row="2" Orientation="Horizontal"
+                            Margin="10 0">
                     <TextBlock
                         Grid.Row="1"
-                        Margin="10,0,0,0"
                         VerticalAlignment="Center"
                         FontSize="12"
                         FontWeight="Bold"

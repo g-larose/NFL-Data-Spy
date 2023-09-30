@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -159,7 +160,13 @@ public class MatchupDataService : IMatchupService
     public List<Matchup> GetWeeklyScoreboard(int year, int week)
     {
         List<Matchup> matchups = new();
-        var link = $"https://www.footballdb.com/scores/index.html?lg=NFL&yr={year}&type=reg&wk={week}";
+        var link = "";
+
+        if (week == 0)
+            link = "https://www.footballdb.com/scores/index.html";
+        else
+            link = $"https://www.footballdb.com/scores/index.html?lg=NFL&yr={year}&type=reg&wk={week}";
+
         var doc = _docService.GetDocument(link);
         var scoreNodes = _docService.GetNodes(doc, ".//div[@class='lngame']//table");
 
@@ -187,9 +194,15 @@ public class MatchupDataService : IMatchupService
 
                 var awayRecord = GetTeamRecord(awayName);
                 var homeRecord = GetTeamRecord(homeName);
-                
-                var awayScore = int.TryParse(row.ChildNodes[1].ChildNodes[7].InnerText, out int awayScoreFinal);
-                var homeScore = int.TryParse(row.ChildNodes[3].ChildNodes[7].InnerText, out int homeScoreFinal);
+                var awayScoreFinal = 0;
+                var homeScoreFinal = 0;
+
+                if (row.ChildNodes[1].ChildNodes.Count() > 4)
+                {
+                    var awayScore = int.TryParse(row.ChildNodes[1].ChildNodes[7].InnerText, out awayScoreFinal);
+                    var homeScore = int.TryParse(row.ChildNodes[3].ChildNodes[7].InnerText, out homeScoreFinal);
+                }
+                    
 
                 if (awayScoreFinal > homeScoreFinal)
                 {
@@ -204,7 +217,7 @@ public class MatchupDataService : IMatchupService
                     var homeTeam = new Team() { Name = homeNameFinal, Record = homeRecord, IsWinner = true };
                     var matchup = new Matchup() { AwayTeam = awayTeam, HomeTeam = homeTeam, GameDate = gameDate };
                     matchups.Add(matchup);
-                }           
+                }         
             }  
         }
 
