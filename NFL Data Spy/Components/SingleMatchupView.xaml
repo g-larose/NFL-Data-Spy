@@ -81,19 +81,17 @@
                 Grid.Row="2"
                 Grid.Column="0"
                 Margin="8,24,8,10">
-                <TextBlock
-                    HorizontalAlignment="Center"
-                    FontSize="16"
-                    FontWeight="Bold"
-                    Foreground="{StaticResource AccentToAccent500GradientBrush}"
-                    Text="{Binding Path=AwayTeam.Name, FallbackValue=Away Team}">
+                <TextBlock HorizontalAlignment="Center"
+                           FontSize="14"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource AccentToAccent500GradientBrush}"
+                           Text="{Binding Path=AwayTeam.Name, FallbackValue=Away Team}">
                     <TextBlock.Effect>
-                        <DropShadowEffect
-                            BlurRadius="4"
-                            Direction="270"
-                            Opacity=".5"
-                            ShadowDepth="2"
-                            Color="Black" />
+                        <DropShadowEffect BlurRadius="4"
+                                          Direction="270"
+                                          Opacity=".5"
+                                          ShadowDepth="2"
+                                          Color="Black" />
                     </TextBlock.Effect>
                 </TextBlock>
                 <TextBlock
@@ -138,7 +136,7 @@
                 Margin="8,24,8,10">
                 <TextBlock
                     HorizontalAlignment="Center"
-                    FontSize="16"
+                    FontSize="14"
                     FontWeight="Bold"
                     Foreground="{StaticResource AccentToAccent500GradientBrush}"
                     Text="{Binding HomeTeam.Name, FallbackValue=Home Team}">

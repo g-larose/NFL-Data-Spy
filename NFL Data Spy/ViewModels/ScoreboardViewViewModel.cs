@@ -37,12 +37,16 @@ namespace NFL_Data_Spy.ViewModels
         [NotifyCanExecuteChangedFor(nameof(SearchCommand))]
         private int _week = 0;
 
+        private int _currentWeek;
+
         public bool CanSearch() => Season != 0 && Week != 0;
         public ScoreboardViewViewModel()
         {
             LoadScoreboard();
+            _currentWeek = _matchupService.GetCurrentWeek();
             Weeks = _dataService.LoadWeeks();
             Seasons = _dataService.LoadSeasons();
+            Scores = _matchupService.GetWeeklyScoreboard(2023, _currentWeek);
             //TODO: load season list from 2023 - 1966
             //TODO: Load week list. 1 - 17
         }

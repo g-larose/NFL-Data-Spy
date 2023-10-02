@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Markup;
 using System.Windows.Media;
 
 namespace API.Services;
@@ -155,6 +156,12 @@ public class MatchupDataService : IMatchupService
 
     #endregion
 
+    /// <summary>
+    /// Get Scoreboard for a chosen Season and Week
+    /// </summary>
+    /// <param name="year"></param>
+    /// <param name="week"></param>
+    /// <returns>List</returns>
     #region GET WEEKLY SCOREBOARD
 
     public List<Matchup> GetWeeklyScoreboard(int year, int week = 0)
@@ -253,5 +260,20 @@ public class MatchupDataService : IMatchupService
     {
         var startIndex = args.IndexOf("(");
         return args.Substring(0, startIndex - 1);
+    }
+
+    public int GetCurrentWeek()
+    {
+        var link = "https://www.footballdb.com/scores/index.html";
+        var doc = _docService.GetDocument(link);
+
+        var weekStr = doc.DocumentNode.SelectSingleNode(".//h1").FirstChild.InnerText;
+        var week = weekStr.Substring(22).Trim();
+        var success = int.TryParse(week, out int weekFinal);
+
+        if (success)
+            return weekFinal;
+
+        return 0;
     }
 }

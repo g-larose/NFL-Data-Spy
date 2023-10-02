@@ -14,5 +14,6 @@ namespace API.Interfaces
         Task<List<Matchup>> GetSeasonSchedule(int year, string teamName);
         Task<List<TeamStanding>> GetCurrentStandingAsync();
         List<Matchup> GetWeeklyScoreboard(int year, int week = 0);
+        int GetCurrentWeek();
     }
 }

@@ -17,7 +17,7 @@ namespace API.Services
         public string GetEnumDescription(Enum value)
         {
             System.Reflection.MemberInfo[] memInfo = value.GetType().GetMember(value.ToString());
-            DescriptionAttribute attribute = CustomAttributeExtensions.GetCustomAttribute<DescriptionAttribute>(memInfo[0]);
+            DescriptionAttribute? attribute = CustomAttributeExtensions.GetCustomAttribute<DescriptionAttribute>(memInfo[0]);
             return attribute!.Description;
         }
 
