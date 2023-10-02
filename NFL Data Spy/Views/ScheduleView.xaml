@@ -29,18 +29,18 @@
             <ComboBox
                 Width="70"
                 Height="30"
-                materialDesign:HintAssist.Hint="Season"
-                Foreground="{StaticResource AccentColorBrush}"
+                Foreground="{StaticResource Primary800ColorBrush}"
                 ItemsSource="{Binding Seasons}"
-                SelectedValue="{Binding Season, UpdateSourceTrigger=PropertyChanged}" />
+                SelectedValue="{Binding Season, UpdateSourceTrigger=PropertyChanged}" 
+                materialDesign:HintAssist.Hint="Season"/>
             <ComboBox
-                Width="200"
+                Width="150"
                 Height="30"
                 Margin="20,0"
-                materialDesign:HintAssist.Hint="Team Name"
-                Foreground="{StaticResource AccentColorBrush}"
+                Foreground="{StaticResource Primary800ColorBrush}"
                 ItemsSource="{Binding TeamNames}"
-                SelectedValue="{Binding Teamname, UpdateSourceTrigger=PropertyChanged}" />
+                SelectedValue="{Binding Teamname, UpdateSourceTrigger=PropertyChanged}"
+                materialDesign:HintAssist.Hint="Team Name"/>
             <Button
                 Command="{Binding SearchCommand}"
                 Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}"
@@ -50,8 +50,11 @@
                     Height="20"
                     Kind="Search" />
             </Button>
+
         </StackPanel>
-        <ListBox Grid.Row="1" ItemsSource="{Binding Matchups}">
+        <ListBox Grid.Row="1" 
+                 ItemsSource="{Binding Matchups}"
+                 SelectedItem="{Binding SelectedMatchup}">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel />

@@ -20,7 +20,7 @@ public class MatchupDataService : IMatchupService
 {
     HtmlDocumentService _docService = new();
     IDataService _dataService = new DataService();
-
+    private IUtility _utilService = new UtilityService();
 
     public MatchupDataService()
     {
@@ -268,9 +268,10 @@ public class MatchupDataService : IMatchupService
         var doc = _docService.GetDocument(link);
 
         var weekStr = doc.DocumentNode.SelectSingleNode(".//h1").FirstChild.InnerText;
-        var week = weekStr.Substring(22).Trim();
+        var index = _utilService.GetIndexFromString(weekStr, " ");
+        var week = weekStr.Substring(index).Trim();
         var success = int.TryParse(week, out int weekFinal);
-
+       
         if (success)
             return weekFinal;
 

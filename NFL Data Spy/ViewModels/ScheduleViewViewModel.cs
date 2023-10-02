@@ -28,6 +28,9 @@ public partial class ScheduleViewViewModel : ObservableObject
     [NotifyCanExecuteChangedFor(nameof(SearchCommand))]
     private int _season = 0;
 
+    [ObservableProperty]
+    private Matchup _selectedMatchup;
+
     public bool CanSearch() => Teamname is not null && Season != 0;
 
     public ScheduleViewViewModel()

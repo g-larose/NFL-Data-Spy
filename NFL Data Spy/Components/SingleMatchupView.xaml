@@ -37,30 +37,33 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="20" />
             </Grid.RowDefinitions>
-            <Border Grid.Row="0"
+            <Border
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                Background="{StaticResource PrimaryToSecondaryGradientBrush}"
+                CornerRadius="6 6 0 0">
+                <TextBlock
+                    Grid.Row="0"
                     Grid.Column="0"
                     Grid.ColumnSpan="3"
-                    CornerRadius="6 6 0 0"
-                    Background="{StaticResource PrimaryToSecondaryGradientBrush}">
-                 <TextBlock Grid.Row="0"
-                            Grid.Column="0"
-                            Grid.ColumnSpan="3"
-                            Margin="2"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Top"
-                            FontSize="14"
-                            FontWeight="Bold"
-                            Foreground="{StaticResource GreenToLiteGreenGradientBrush}"
-                            Text="{Binding GameDate}" />
+                    Margin="2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    FontSize="14"
+                    FontWeight="Bold"
+                    Foreground="{StaticResource GreenToLiteGreenGradientBrush}"
+                    Text="{Binding GameDate}" />
             </Border>
-           
+
             <Border
-                Grid.Column="0"
                 Grid.Row="1"
+                Grid.Column="0"
                 Width="84"
                 Height="84"
                 Background="Transparent"
                 CornerRadius="40">
+
                 <Image
                     Width="64"
                     Height="64"
@@ -81,17 +84,19 @@
                 Grid.Row="2"
                 Grid.Column="0"
                 Margin="8,24,8,10">
-                <TextBlock HorizontalAlignment="Center"
-                           FontSize="14"
-                           FontWeight="Bold"
-                           Foreground="{StaticResource AccentToAccent500GradientBrush}"
-                           Text="{Binding Path=AwayTeam.Name, FallbackValue=Away Team}">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    FontSize="14"
+                    FontWeight="Bold"
+                    Foreground="{StaticResource AccentToAccent500GradientBrush}"
+                    Text="{Binding Path=AwayTeam.Name, FallbackValue=Away Team}">
                     <TextBlock.Effect>
-                        <DropShadowEffect BlurRadius="4"
-                                          Direction="270"
-                                          Opacity=".5"
-                                          ShadowDepth="2"
-                                          Color="Black" />
+                        <DropShadowEffect
+                            BlurRadius="4"
+                            Direction="270"
+                            Opacity=".5"
+                            ShadowDepth="2"
+                            Color="Black" />
                     </TextBlock.Effect>
                 </TextBlock>
                 <TextBlock
@@ -110,8 +115,8 @@
             </StackPanel>
 
             <Border
-                Grid.Column="2"
                 Grid.Row="1"
+                Grid.Column="2"
                 Width="84"
                 Height="84"
                 Background="Transparent"
